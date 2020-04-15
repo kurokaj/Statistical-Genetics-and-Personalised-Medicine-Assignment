@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/ -->
+<html lang="en-US" style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://mc.ai/xmlrpc.php">
+
+<!-- This site is running CAOS for Wordpress -->
+<script type="text/javascript" async="" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/recaptcha__en.js.Download"></script><script async="" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/analytics.js.Download"></script><script>
+        (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', 'https://mc.ai/wp-content/cache/caos-analytics/analytics.js', 'ga');
+    </script>
+
+<script>
+        // You're always allowing cookies. No additional script is needed.
+    </script>
+
+<script>
+    ga('create', 'UA-538552-6', {"cookieName":"caosLocalGa","cookieDomain":"mc.ai","cookieExpires":0});
+
+        
+    ga('send', 'pageview');
+
+        
+    </script>
+<title>Time Series Analysis | Physionet 2019 Early Prediction of Sepsis – mc.ai</title>
+<!-- Jetpack Site Verification Tags -->
+<meta name="google-site-verification" content="ZkuWikuByk2kkbmJyWNs__lK16AJBLziKQoYwGnAzEU">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="mc.ai » Feed" href="https://mc.ai/feed/">
+<link rel="alternate" type="application/rss+xml" title="mc.ai » Comments Feed" href="https://mc.ai/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/mc.ai\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/wp-emoji-release.min.js.Download" type="text/javascript" defer=""></script>
+		<!-- mc.ai is managing ads with Advanced Ads – https://wpadvancedads.com/ --><script>
+						advanced_ads_ready=function(){var fns=[],listener,doc=typeof document==="object"&&document,hack=doc&&doc.documentElement.doScroll,domContentLoaded="DOMContentLoaded",loaded=doc&&(hack?/^loaded|^c/:/^loaded|^i|^c/).test(doc.readyState);if(!loaded&&doc){listener=function(){doc.removeEventListener(domContentLoaded,listener);window.removeEventListener("load",listener);loaded=1;while(listener=fns.shift())listener()};doc.addEventListener(domContentLoaded,listener);window.addEventListener("load",listener)}return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}}();
+						</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="gridbox-custom-fonts-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/custom-fonts.css" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-inline-css" type="text/css">
+.has-text-align-justify{text-align:justify;}
+</style>
+<link rel="stylesheet" id="gridbox-stylesheet-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/style.css" type="text/css" media="all">
+<style id="gridbox-stylesheet-inline-css" type="text/css">
+.type-post .entry-footer .entry-tags { position: absolute; clip: rect(1px, 1px, 1px, 1px); width: 1px; height: 1px; overflow: hidden; }
+</style>
+<link rel="stylesheet" id="genericons-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/genericons.css" type="text/css" media="all">
+<link rel="stylesheet" id="themezee-related-posts-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/themezee-related-posts.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/jquery.js.Download"></script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/jquery-migrate.min.js.Download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/related-posts.min.js.Download"></script>
+<!--[if lt IE 9]>
+<script type='text/javascript' src='https://mc.ai/wp-content/themes/gridbox/assets/js/html5shiv.min.js?ver=3.7.3'></script>
+<![endif]-->
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/navigation.js.Download"></script>
+<link rel="https://api.w.org/" href="https://mc.ai/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mc.ai/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://mc.ai/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="I am very much excited to share this with you all that i have become a Redhat Enterprises Linux 8…" href="https://mc.ai/i-am-very-much-excited-to-share-this-with-you-all-that-i-have-become-a-redhat-enterprises-linux-8/">
+<link rel="next" title="Technical Learning Outcome — Day 8 to Day 22" href="https://mc.ai/technical-learning-outcome%e2%80%8a-%e2%80%8aday-8-to-day-22/">
+<meta name="generator" content="WordPress 5.4">
+<link rel="canonical" href="https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/">
+<link rel="shortlink" href="https://wp.me/p9C9Dd-7j6">
+<link rel="alternate" type="application/json+oembed" href="https://mc.ai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmc.ai%2Ftime-series-analysis-physionet-2019-early-prediction-of-sepsis%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://mc.ai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmc.ai%2Ftime-series-analysis-physionet-2019-early-prediction-of-sepsis%2F&amp;format=xml">
+<style>[class$="woocommerce-product-gallery__trigger"] {visibility:hidden;}</style>
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<style type="text/css">img#wpstats{display:none}</style><link rel="amphtml" href="https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/amp/">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Time Series Analysis | Physionet 2019 Early Prediction of Sepsis">
+<meta property="og:url" content="https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/">
+<meta property="og:description" content="Source: Deep Learning on Medium Mun Kar KinJun 2IntroductionI am currently taking part in the PhysioNet/Computing in Cardiology Challenge (2019) for the early prediction of sepsis. According to the…">
+<meta property="article:published_time" content="2019-06-02T18:06:02+00:00">
+<meta property="article:modified_time" content="2019-06-02T18:06:02+00:00">
+<meta property="og:site_name" content="mc.ai">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:text:title" content="Time Series Analysis | Physionet 2019 Early Prediction of Sepsis">
+<meta name="twitter:card" content="summary">
+
+<!-- End Jetpack Open Graph Tags -->
+<script data-ad-client="ca-pub-9935277739774426" async="" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/f.txt"></script><link type="text/css" rel="stylesheet" charset="UTF-8" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/main_de.js.Download"></script><script type="text/javascript" charset="UTF-8" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/element_main.js.Download"></script></head>
+
+<body class="post-template-default single single-post postid-28092 single-format-standard wp-embed-responsive post-layout-three-columns post-layout-columns author-hidden categories-hidden" style="position: relative; min-height: 100%; top: 0px;">
+
+	<div id="page" class="hfeed site">
+
+		<a class="skip-link screen-reader-text" href="https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/#content">Skip to content</a>
+
+		
+		<header id="masthead" class="site-header clearfix" role="banner">
+
+			<div class="header-main container clearfix">
+
+				<div id="logo" class="site-branding clearfix">
+
+										
+			<p class="site-title"><a href="https://mc.ai/" rel="home">mc.ai</a></p>
+
+							
+			<p class="site-description">Aggregated news around AI and co.</p>
+
+		
+				</div><!-- .site-branding -->
+
+				<button id="main-navigation-toggle" class="main-navigation-toggle"></button><nav id="main-navigation" class="primary-navigation navigation clearfix" role="navigation">
+					<ul id="menu-main-navigation" class="main-navigation-menu menu"></ul>				</nav><!-- #main-navigation -->
+
+			</div><!-- .header-main -->
+
+		</header><!-- #masthead -->
+
+		
+		
+		<div id="content" class="site-content container clearfix">
+
+	<section id="primary" class="content-single content-area">
+		<main id="main" class="site-main" role="main">
+				
+		
+<article id="post-28092" class="post-28092 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+
+	
+	<header class="entry-header">
+
+		<h1 class="entry-title">Time Series Analysis | Physionet 2019 Early Prediction of Sepsis</h1>
+		<div class="entry-meta"><span class="meta-date"><a href="https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/" title="19:06" rel="bookmark"><time class="entry-date published updated" datetime="2019-06-02T19:06:02+01:00">2. June 2019</time></a></span><span class="meta-author"> <span class="author vcard"><a class="url fn n" href="https://mc.ai/author/chm/" title="View all posts by chm" rel="author">chm</a></span></span><span class="meta-category"> <a href="https://mc.ai/category/uncategorized/" rel="category tag">Uncategorized</a></span></div>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content clearfix">
+
+		<p>Source: <a href="https://medium.com/tag/deep-learning/latest?source=rss------deep_learning-5">Deep Learning on Medium</a></p><div class="advads-inhalt" style="text-align: center; " id="advads-1660318436"><script async="" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/f.txt"></script>
+<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-client="ca-pub-9935277739774426" data-ad-slot="5333977537" data-ad-layout="in-article" data-ad-format="fluid"></ins>
+<script> 
+(adsbygoogle = window.adsbygoogle || []).push({}); 
+</script>
+</div>
+<div>
+<div>
+<section name="3075">
+<div>
+<hr>
+</div>
+<div>
+<div>
+<div>
+<div><a href="https://medium.com/@munkarkin?source=post_header_lockup" dir="auto"><p></p>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/2_sJWsfeNiuyM0FRPQt__uEw.jpeg" alt="Go to the profile of Mun Kar Kin" data-large_image_width="2568.686868686869" data-large_image_height="2543"><p></p>
+<div><svg></svg></div>
+</div>
+</a><p><a href="https://medium.com/@munkarkin?source=post_header_lockup" dir="auto"></a></p></div>
+<div>
+<div><a href="https://medium.com/@munkarkin" dir="auto">Mun Kar Kin</a><span></span></div>
+<div><time datetime="2019-06-02T18:05:01.636Z">Jun 2</time><span><span title="12 min read"></span></span></div>
+</div>
+</div>
+<h3 name="68da" id="68da">Introduction</h3>
+<p name="e461" id="e461">I am currently taking part in the PhysioNet/Computing in Cardiology Challenge (2019) for the early prediction of sepsis. According to the website, sepsis is a life-threatening condition that occurs when the body’s response to infection causes tissue damage, organ failure, or death (<a href="https://www.ncbi.nlm.nih.gov/pubmed/26903338" rel="nofollow noopener noreferrer" target="_blank">Singer <em>et al.</em>, 2016</a>). Some of the symptoms of sepsis include fit, convulsion rashes, heavy breathing and so forth. Early detection and antibiotic treatment of sepsis are critical for improving sepsis outcomes, where each hour of delayed treatment has been associated with roughly an <strong><em>4–8%</em></strong> increase in mortality (<a href="https://www.ncbi.nlm.nih.gov/pubmed/16625125" rel="nofollow noopener noreferrer" target="_blank">Kumar <em>et al.</em>, 2006</a>; <a href="https://www.ncbi.nlm.nih.gov/pubmed/28528569" rel="nofollow noopener noreferrer" target="_blank">Seymour<em>et al.</em>, 2017</a>). Hence, successful predictions of sepsis may potentially save many lives. For more information about the competition, visit</p>
+<div name="64a0" id="64a0"><a href="https://physionet.org/challenge/2019/" title="https://physionet.org/challenge/2019/" rel="nofollow"><strong>Early Prediction of Sepsis from Clinical Data: the PhysioNet/Computing in Cardiology Challenge 2019</strong><br><em>We ask participants to design and implement a working, open-source algorithm that can, based only on the clinical data…</em>physionet.org</a><a href="https://physionet.org/challenge/2019/"></a></div><a href="https://physionet.org/challenge/2019/">
+<p name="c70b" id="c70b">The article contains three main parts.</p>
+<ol>
+<li name="02c6" id="02c6"><strong><em>Explanatory Data Analysis (EDA)</em></strong></li>
+<li name="d9aa" id="d9aa"><strong><em>Missing Data Imputation using Gaussian Mixture Models (GMM)s</em></strong></li>
+<li name="029b" id="029b"><strong><em>Deploying a Deep Learning Model (Stacked LSTM with time distributed fully connected layers)</em></strong></li>
+</ol>
+<p name="e2cf" id="e2cf">This post is meant to provide a quick and dirty implementation of the entire pipeline and start identifying potential areas of improvement as Andrew Ng always preaches, “ <em>we first implement something quick and dirty, and then we iterate</em> ”.</p>
+<h3 name="3592" id="3592">Explanatory Data Analysis&nbsp;(EDA)</h3>
+<figure name="dc7b" id="dc7b">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_ud2vbnaR-05Qhh6YlahRgg.png" data-large_image_width="2196.934250764526" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*ud2vbnaR-05Qhh6YlahRgg.png"/></noscript></canvas></div>
+</div><figcaption>Reference of all the features in the&nbsp;dataset</figcaption></div></figure>
+<p name="31ac" id="31ac">The data used in the competition is from the ICU patients in separate hospital systems. There are a total of <em>40336 patients</em>, with readings taken at an hourly basis. The number of <strong>time-dependant hours</strong> in a patient may be vastly different for each patient, varying in the range from about 10 hours of data per patient to a few hundred hours per patient. For example, the data for one of the patient may take the following form:</p>
+<figure name="8b36" id="8b36">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_LZZvx5hqXBM_JumbjHD9ig.png" data-large_image_width="7848.765432098765" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*LZZvx5hqXBM_JumbjHD9ig.png"/></noscript></canvas></div>
+</div><figcaption>Figure 1: Sample dataset for one of the&nbsp;patient</figcaption></div></figure>
+<p name="05b0" id="05b0">Notice that the dataset contains many missing values indicated by NaN. It is common to have a dataset from the real world with more missing values than real data points. This is an issue that we will address later on.</p>
+<p name="cc4e" id="cc4e">Since the datasets contain 40336 independent files, it is helpful to compress all of the data points in a csv file with an “identifier” to indicate the origin of the data points. Hence, the dataset now takes the shape of (m, n), where m = 1552210 and n = 42.</p>
+<figure name="5cc3" id="5cc3">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_cSfQOBdA9ZmCKUqrElPS1Q.png" data-large_image_width="16270.889830508475" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*cSfQOBdA9ZmCKUqrElPS1Q.png"/></noscript></canvas></div>
+</div><figcaption>Figure 2: Dataset Compressed into Comma Separated Values (csv)&nbsp;format</figcaption></div></figure>
+<p name="3a2b" id="3a2b">As aforementioned, the dataset is full of missing values. It might be helpful to visualize the number of missing values for each feature in the form of a graph sorted in ascending order.</p>
+<figure name="4dc9" id="4dc9">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_fE04fI4CnuGGiIo6b6x15A.png" data-large_image_width="3053.122754491018" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*fE04fI4CnuGGiIo6b6x15A.png"/></noscript></canvas></div>
+</div><figcaption>Figure 3: % of missing values for each&nbsp;f</figcaption></div></figure>
+<p name="942c" id="942c">Some of the features such as Bilirubin_direct, Fibrinogen, and so forth has 99% of missing values! This certainly makes it difficult for any model to learn the distribution of the data with so much of missing values. Let’s visualize the correlation between each feature at a patient selected at random, and at the same time visualizing the number of missing values in the form of a heatmap.</p>
+<figure name="01c0" id="01c0">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_sCFyZy6FSaf8fza7tWkutw.png" data-large_image_width="3417.964406779661" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*sCFyZy6FSaf8fza7tWkutw.png"/></noscript></canvas></div>
+</div><figcaption>Figure 4: Correlation Between Each Feature for a Randomly Selected&nbsp;Patient</figcaption></div></figure>
+<p name="9f18" id="9f18">All the white spaces indicate that the features are missing. Based on the heatmap, it seems that most of the features on the upper left-hand corner may be put to good use. Besides that, the features are not very correlated. Hence, none of the features are found to be particularly redundant at this point in time. Let us then move on by visualizing the correlation between each feature with all 40336 patients combined.</p>
+<figure name="595f" id="595f">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_h2BbTizmRHM74kGduoRKeg.png" data-large_image_width="3438.2397959183672" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*h2BbTizmRHM74kGduoRKeg.png"/></noscript></canvas></div>
+</div><figcaption>Figure 5: Correlation Between Each Feature for the Entire&nbsp;Dataset</figcaption></div></figure>
+<p name="fd55" id="fd55">It is now more evident that the features are uncorrelated.</p>
+<p name="fdf9" id="fdf9">It is usually helpful to visualize the distribution of the dataset to look out for any potential biases. Taking the dataset as a whole, the distribution is as follow, where 1.8% of all data points have a SepsisLabel == 1.</p>
+<figure name="8758" id="8758">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_oyz6rbwAdSokOI8PUMHCig.png" data-large_image_width="4542.509234828496" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*oyz6rbwAdSokOI8PUMHCig.png"/></noscript></canvas></div>
+</div><figcaption>Figure 6</figcaption></div></figure>
+<p name="1386" id="1386">However, the distribution may not be an accurate representation of the problem we are dealing with as we are trying to predict sepsis as per patient. Hence, let’s reformalize the problem slightly differently. We let <em>SepsisLabel == 1</em> if the patient will eventually suffer from sepsis within his/her time frame (may not suffer from sepsis in the beginning), and <em>SepsisLabel == 0 </em>otherwise. Hence, the distribution now takes on the following form, with 7.27% of the patients in our dataset that will suffer from sepsis eventually.</p>
+<figure name="4729" id="4729">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_aYqjPvk6_xTo0Fl33hE-8w.png" data-large_image_width="4544.936170212765" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*aYqjPvk6_xTo0Fl33hE-8w.png"/></noscript></canvas></div>
+</div><figcaption>Figure 7</figcaption></div></figure>
+<p name="8a24" id="8a24">It is now obvious that is dataset is highly biased towards patients who will never suffer from sepsis within his/her time frame in the hospital. Techniques such as stratification will be required to ensure that the distribution of data remains consistent across the training, testing and cross-validation set.</p>
+<p name="077e" id="077e">Outliers are usually an important indication of the target label. Outliers could be due to an erroneous sensor reading, or it could provide very useful information for the class label classification. We define an outlier for a feature to be a value that is 3 standard deviations away from the mean of the feature. Let’s visualize the outliers for one of the feature “HR”.</p>
+<figure name="5d86" id="5d86">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_CjWo4PsObyz_8mNRKaFHAQ.png" data-large_image_width="9845.685840707965" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*CjWo4PsObyz_8mNRKaFHAQ.png"/></noscript></canvas></div>
+</div><figcaption>Figure 8: Visualizing the Number of Outliers of Each&nbsp;Patient</figcaption></div></figure>
+<p name="eee5" id="eee5">Most of the patients have at least one or more outliers. It is helpful to visualize the values of the outliers and the corresponding label.</p>
+<figure name="1fa8" id="1fa8">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_bw2Wn0YX2nFgW2I3ho02yQ.png" data-large_image_width="5091.714606741572" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*bw2Wn0YX2nFgW2I3ho02yQ.png"/></noscript></canvas></div>
+</div><figcaption>Figure 9: Visualizing the Outliers in the&nbsp;dataset</figcaption></div></figure>
+<p name="8369" id="8369">The information shows that the outliers are consistently around the same range. Typically, the data points are out of the ordinary, for example taking on values of 99999.999 among a pool of readings in the range of hundredths, that could be a potential sensor fault.</p>
+<p name="a18a" id="a18a">It is also often helpful to visualize the important indicators in the form of a table. In certain cases, one might be able to extract useful information from the dataset.</p>
+<figure name="ffd9" id="ffd9">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_SdPbY5sCxHeBlZNhQjYyvg.png" data-large_image_width="4859.7822085889575" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*SdPbY5sCxHeBlZNhQjYyvg.png"/></noscript></canvas></div>
+</div><figcaption>Figure 10: A truncated table showing different indicators</figcaption></div></figure>
+<p name="526f" id="526f">In the table above (in the form of a panda DataFrame), the first column tells us the percentage of outliers that are present when the patient is suffering from sepsis. A high value indicates that the feature is highly important for the prediction. The column in the center indicates the percentage of missing values, and it is here for comparison and visualizing purposes. Lastly, the last column tells us the percentage of outliers that are present when the patient is suffering from sepsis, conditioned on only taking into account the rows with no missing values. This is important as the dataset is full of missing values.</p>
+<p name="8d01" id="8d01">The table above is telling us a lot of information that might be useful. There are several observations that can be made from the first column, for example,</p>
+<ol>
+<li name="34a7" id="34a7">If a feature value of ICULOS is an outlier, there is a 14% chance that the patient might suffer from a Sepsis</li>
+<li name="bdb9" id="bdb9">If a feature value of HospAdmTime is an outlier, there is a 3% chance that the patient might suffer from a Sepsis</li>
+<li name="74eb" id="74eb">etc&nbsp;…</li>
+</ol>
+<p name="326c" id="326c">However, this may not be an accurate representation because when the sepsis is positive, the corresponding feature could be a null value. Hence, the third column takes care of this. Essentially, the third column is telling us that, whenever the patient suffers from sepsis, and that the corresponding feature is not null, what is the percentage of that happening? Hence several observations can be made, for example,</p>
+<ol>
+<li name="90b9" id="90b9">If a feature value of Bilirubin_direct is an outlier, the patient will have sepsis for 6% of the time (this time with the null values taken care of)</li>
+<li name="531d" id="531d">Also, for example, notice that ICULOUS has 0 % missing values. Hence, the first column and the third column has the same value, which makes sense because the feature does not have null values.</li>
+</ol>
+<p name="3225" id="3225">HospAdmTime is an indicative measure of the hours between hospital admit and ICU admits, and ICULOS is nothing but the ICU the length-of-stay. The data is telling us that the longer one stays in the hospital, the higher the risk of eventually developing sepsis. Intuitively, this makes sense. Hence, it gives further confidence to the visualization techniques performed. There are many other important factors that can be derived from the table but is not explained here for simplicity.</p>
+<p name="c643" id="c643">This whole time we have been visualizing the data in the form of numbers. Let’s convert the data into pretty diagrams. Previously, we have mentioned that ICULOS could be an important indicative factor to the eventual development of sepsis. Indeed, when we visualize the distribution of the feature according to their individual class labels, we could a clear distinguishing point from the graph.</p>
+<figure name="7256" id="7256">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_U42zWsKdcLQmwWikuj9r3Q.png" data-large_image_width="7786.70542635659" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*U42zWsKdcLQmwWikuj9r3Q.png"/></noscript></canvas></div>
+</div><figcaption>Figure 11: Visualization of Features of the dataset according to class&nbsp;labels</figcaption></div></figure>
+<p name="ecf6" id="ecf6">Recall that from the table in figure 10, feature MAP has one of the lowest values of the number of outliers present conditioned on taking only the count of values that is not null, visually, it is also relatively difficult to differentiate between the two classes.</p>
+<figure name="5d69" id="5d69">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_byIjLDdLaTti8EuUD0SA1w.png" data-large_image_width="8204.576131687243" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*byIjLDdLaTti8EuUD0SA1w.png"/></noscript></canvas></div>
+</div><figcaption>Figure 12: Visualization of Features of the dataset according to class&nbsp;labels</figcaption></div></figure>
+<p name="e5c7" id="e5c7">There are a total of 41 features but only 4 charts are shown for clarity.</p>
+<p name="60bc" id="60bc">Next, let’s visualize the time series dependency of each of the features of at patient level. A patient that will eventually develop sepsis, and a patient who does not develop sepsis for his/her entire time in the hospital is visualized below.</p>
+<figure name="6650" id="6650">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_OU8NbsBkXuK67EMO9-NDkw.png" data-large_image_width="7389.442028985507" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*OU8NbsBkXuK67EMO9-NDkw.png"/></noscript></canvas></div>
+</div><figcaption>Figure 13: Visualizing of all features of a randomly selected patient in the form of a graph (the blue line that has a sharp transition of value from 0 to 1 indicates the time horizon in which the patient transition into&nbsp;sepsis.</figcaption></div></figure>
+<figure name="08ac" id="08ac">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_SsC3SwyaCMyE-HV-GkoGWw.png" data-large_image_width="7460.092250922509" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*SsC3SwyaCMyE-HV-GkoGWw.png"/></noscript></canvas></div>
+</div><figcaption>Figure 14: Visualizing of all features of a randomly selected patient in the form of a graph. (this time, the patient does not suffer from&nbsp;sepsis)</figcaption></div></figure>
+<p name="3a78" id="3a78">Notice that the patient who does not suffer from sepsis eventually has a noisier graph, whereas the patient who will eventually suffer from sepsis has a graph that is rather stagnant. Hence, if it is possible for us to differentiate the classes, it is also possible to deploy machine learning algorithms to model the behavior.</p>
+<p name="2b3f" id="2b3f">It is also helpful to find out how far the time dependency of the data persists. This can be done by calculating the correlation between the original time series data and a shifted version of the time series data.</p>
+<figure name="f3ed" id="f3ed">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_0VX-0eyiWuTZQYPVrMDsoA.png" data-large_image_width="4255.118811881188" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*0VX-0eyiWuTZQYPVrMDsoA.png"/></noscript></canvas></div>
+</div><figcaption>Figure 15: The correlation between the original time-dependent data of a patient to a shifted version of the&nbsp;data</figcaption></div></figure>
+<p name="de88" id="de88">This gives us a rough idea of the number of lookback hours for training models such as LSTMs. The correlation certainly does not for too long according to the information in figure 15.</p>
+<h3 name="7893" id="7893">Missing Data Imputation</h3>
+<p name="c014" id="c014">There are many ways to deal with missing values. If the number of missing values is negligible, then one can simply treat the missing values by filling it with the mean of the feature for a continuous variable, or the highest occurring category of a feature for categorical variables.</p>
+<p name="435c" id="435c">However, since the dataset has a high number of missing values, treating the missing values using the method as aforementioned may cause serious biases in the model that we are developing, and will certainly overfit to those values are they are all constants. Hence, a probabilistic model will be more applicable in this case.</p>
+<p name="baef" id="baef">A Gaussian Mixture Model (GMM) can be used for missing value imputation.</p>
+<p name="6d85" id="6d85">For more information about the implementation of GMM, visit the following link.</p>
+</a><div name="0279" id="0279"><a href="https://physionet.org/challenge/2019/"></a><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html" title="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html" rel="nofollow"><strong>In Depth: Gaussian Mixture Models</strong><br><em>The -means clustering model explored in the previous section is simple and relatively easy to understand, but its…</em>jakevdp.github.io</a><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html"></a></div><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+<p name="b9e6" id="b9e6">Simply speaking, a GMM is a linear combination of Gaussian distributed variables, and it takes on the following form:</p>
+<figure name="ca28" id="ca28">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_Q3quQplR1STC3ZNlpFlTuQ.png" data-large_image_width="8013.098958333333" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*Q3quQplR1STC3ZNlpFlTuQ.png"/></noscript></canvas></div>
+</div><figcaption>Figure 16: The magic behind GMM (extracted from my lecture notes), K = number of components</figcaption></div></figure>
+<p name="1400" id="1400">The challenge is solving for the parameters in the statistical model, which is more mathematically involved. Expectation-Maximization (EM) is the go-to method to find the maximum likelihood estimate of the parameters of the model.</p>
+<p name="15fc" id="15fc">The data imputation is modeled as such. Since the primary goal is to find SepsisLabel, for any missing data, the missing values are modeled from distributions of two Gaussian, which may look like the following:</p>
+<figure name="45a6" id="45a6">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_V86Jn5R_EExDiMp0iGW9PQ.png" data-large_image_width="4155.634146341463" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*V86Jn5R_EExDiMp0iGW9PQ.png"/></noscript></canvas></div>
+</div><figcaption>Figure 17: Visualization of GMM (think of having two Gaussian distributions within the two clusters of data in the diagram&nbsp;above)</figcaption></div></figure>
+<p name="6d8f" id="6d8f">Recall that there is about <strong><em>1.798 % </em></strong>of Class 1 labels in the entire dataset. It can be ( and has been ) verified that the distribution of data generated from the model does follow the same distribution.</p>
+<p name="38db" id="38db">Note that since we are only interested in density estimation, it is possible to use higher values of K (more components) to generate better distribution. However, I would like to generate random values based on the distribution of the feature corresponding to the <em>SepsisLabel</em> to ensure consistency. Experiments have shown that even with <strong><em>K = 2</em></strong>, the data distribution can be captured as well.</p>
+<p name="067e" id="067e">For quick and dirty implementation, only the features with less than 15% of missing values are selected to be used for prediction.</p>
+<h3 name="78bf" id="78bf">Deploying Deep Learning&nbsp;Models</h3>
+<p name="79de" id="79de">Since the rise of deep learning in 2012 after winning an ImageNet classification competition with a deep convolutional neural network, there are plenty of papers that are spawned in the domain. Deep learning models have been proven to be very useful to model different problems. For starters, since this is a time-dependent problem, the holy grail of time-series prediction is screaming Long Short Term Memory (LSTM).</p>
+<p name="0b04" id="0b04">For quick and dirty implementation, the following model is built with Keras.</p>
+<figure name="8312" id="8312">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_5F1Ll_r-UmDv5W9cAsPR4A.png" data-large_image_width="4837.90243902439" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*5F1Ll_r-UmDv5W9cAsPR4A.png"/></noscript></canvas></div>
+</div><figcaption>Figure 18: Deep Learning Model Architecture</figcaption></div></figure>
+<p name="4eaa" id="4eaa">To provide a more visually oriented diagram, the model is better visualized in the diagram below.</p>
+<figure name="f761" id="f761">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_qBYBtL_JHvU1kNlsyRpgrA.png" data-large_image_width="7010.7477064220175" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*qBYBtL_JHvU1kNlsyRpgrA.png"/></noscript></canvas></div>
+</div><figcaption>Figure 19: This model is generated by playing lego using the images online and the courses I have taken. A prediction of sepsis will be produced at each time&nbsp;step.</figcaption></div></figure>
+<p name="5850" id="5850">However, before training the model, there is just one more thing to do, data preprocessing.</p>
+<ol>
+<li name="59a8" id="59a8">Dataset is to be split into training, testing and cross-validation set with a ratio of<strong><em> 60:20:20</em></strong>, each taking on the same distribution as indicated in figure 7. The split is done with respect to patients, not to the total nuber of data points. (Each set should contain roughly <strong><em>7%</em></strong> of patients who will eventually suffer from sepsis). This can be achieved by applying the stratification method when splitting patients. <strong>Note: The dataset should not be split based on the size of the dataset as it will not make sense to separate and randomize the time dependencies of each patient. It is very tempting to apply <em>train_test_split() directly, </em>but it is not correct. </strong>Alternatively, one can use train_test_split() to split the patients instead of the dataset.</li>
+<li name="963a" id="963a">The training set is scaled to a range of between<strong><em> (0, 1)</em></strong>. The same parameters used to scale the training set must be used to scale the testing and cross-validation set. This is because we are not supposed to have the knowledge on unforeseen data points in the testing and cross-validation set.</li>
+</ol>
+<p name="e66a" id="e66a">For a teaser, the model can easily be implemented using Keras with the code snippet below.</p>
+<figure name="88cc" id="88cc">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_lPpbovQO9frlLUGqpvvW4Q.png" data-large_image_width="5469.967821782178" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*lPpbovQO9frlLUGqpvvW4Q.png"/></noscript></canvas></div>
+</div><figcaption>Figure 20: Keras implementation of the&nbsp;model</figcaption></div></figure>
+<p name="79b9" id="79b9">The Keras framework expects the input to be in the form of <strong><em>(m_batch, time_steps, num_features)</em></strong>. This can be achieved using the helper function below.</p>
+<figure name="0ce1" id="0ce1">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_EXllW_P09p48eMk_2xJBJg.png" data-large_image_width="4581.072202166065" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*EXllW_P09p48eMk_2xJBJg.png"/></noscript></canvas></div>
+</div><figcaption>Figure 21: Data preparation into the right format. The function expects the entire data points of a single patient, and output the processed data in the desired&nbsp;format.</figcaption></div></figure>
+<p name="00e5" id="00e5">However, the batch size of each patient is varying. This can be solved by using the <strong><em>Model.train_on_batch()</em></strong> method of in the Keras framework. The pseudocode takes the following form (the implementation is done in Python).</p>
+<figure name="d77c" id="d77c">
+<div>
+<div>
+<div><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/1_00SsrH2B7XSPRisygd4nBw.png" data-large_image_width="5270.148275862069" data-large_image_height="2543"><canvas><img data-large_image_width="NaN" data-large_image_height="2543"><noscript><img src="https://cdn-images-1.medium.com/max/1000/1*00SsrH2B7XSPRisygd4nBw.png"/></noscript></canvas></div>
+</div><figcaption>Figure 22: Pseudocode to train the&nbsp;model</figcaption></div></figure>
+<p name="6c12" id="6c12">The accuracy of the model can, of course, reach more than 90 % easily. This is due to the fact that the model is highly biased towards class 0. However, as Andrew Ng always preaches, “ we first implement something quick and dirty, and then we iterate ”.</p>
+<p name="fbda" id="fbda">The evaluation metrics should, of course, be changed. The competition does have its customized evaluation metrics, which rewards classifiers that predict sepsis between 12 hours and 3 hours before the patient suffers from sepsis and penalizes classifiers which do not predict sepsis or more than 12 hours before sepsis happens.</p>
+<p name="d8de" id="d8de">The code will be uploaded once the competition is over. <strong><em>Stay tuned</em></strong> to more posts about better uses cases of the cross-validation set to find out the optimum parameters (Bayesian Optimization, Random Searching, etc..) and better deep learning models such as using Attention, Encoders for feature extraction, or even Generative Models such as GANs to generate more data to reduce the biases towards class 0.</p>
+</a></div><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+</a></div><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+</a></section><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+</a></div><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+</a></div><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-nothumbs" data-post-id="30304" data-post-format="false"><a class="jp-relatedposts-post-a jp-relatedposts-post-aoverlay" href="https://mc.ai/early-detection-of-sepsis-using-physiological-data/" title="Early Detection of Sepsis Using Physiological Data
+
+Source: Deep Learning on Medium karan sindwaniJul 5What is Sepsis ?Sepsis is a potentially life-threatening condition caused by the body’s response to an infection. In a usual case, the body releases chemicals into bloodstream to neutralise an infection. Sepsis occurs when the body’s response to these chemicals is out of balance,…" data-origin="28092" data-position="0"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://mc.ai/early-detection-of-sepsis-using-physiological-data/" title="Early Detection of Sepsis Using Physiological Data
+
+Source: Deep Learning on Medium karan sindwaniJul 5What is Sepsis ?Sepsis is a potentially life-threatening condition caused by the body’s response to an infection. In a usual case, the body releases chemicals into bloodstream to neutralise an infection. Sepsis occurs when the body’s response to these chemicals is out of balance,…" data-origin="28092" data-position="0">Early Detection of Sepsis Using Physiological Data</a></h4><p class="jp-relatedposts-post-excerpt" style="max-height: 7.14286em;">Source: Deep Learning on Medium karan sindwaniJul 5What is Sepsis&nbsp;?Sepsis is a potentially life-threatening condition caused by the body’s response to an infection. In a usual case, the body releases chemicals into bloodstream to neutralise an infection. Sepsis occurs when the body’s response to these chemicals is out of balance,…</p><p class="jp-relatedposts-post-date" style="display: block;">5. July 2019</p><p class="jp-relatedposts-post-context">Similar post</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-nothumbs" data-post-id="78689" data-post-format="false"><a class="jp-relatedposts-post-a jp-relatedposts-post-aoverlay" href="https://mc.ai/machine-learning-y-pacientes-criticos/" title="Machine learning y pacientes críticos
+
+Original article can be found here (source): Artificial Intelligence on Medium Machine learning y pacientes críticosAplicaciones y casos prácticos sobre el uso del Machine Learning en el tratamiento de enfermos.La práctica de la medicina implica convertir los datos que describen a los pacientes (diagnósticos y pronóstico) en conocimiento para ayudarlos.…" data-origin="28092" data-position="1"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://mc.ai/machine-learning-y-pacientes-criticos/" title="Machine learning y pacientes críticos
+
+Original article can be found here (source): Artificial Intelligence on Medium Machine learning y pacientes críticosAplicaciones y casos prácticos sobre el uso del Machine Learning en el tratamiento de enfermos.La práctica de la medicina implica convertir los datos que describen a los pacientes (diagnósticos y pronóstico) en conocimiento para ayudarlos.…" data-origin="28092" data-position="1">Machine learning y pacientes críticos</a></h4><p class="jp-relatedposts-post-excerpt" style="max-height: 7.14286em;">Original article can be found here (source): Artificial Intelligence on Medium Machine learning y pacientes críticosAplicaciones y casos prácticos sobre el uso del Machine Learning en el tratamiento de enfermos.La práctica de la medicina implica convertir los datos que describen a los pacientes (diagnósticos y pronóstico) en conocimiento para ayudarlos.…</p><p class="jp-relatedposts-post-date" style="display: block;">14. April 2020</p><p class="jp-relatedposts-post-context">Similar post</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-nothumbs" data-post-id="49552" data-post-format="false"><a class="jp-relatedposts-post-a jp-relatedposts-post-aoverlay" href="https://mc.ai/doctors-use-big-data-to-cut-sepsis-down-to-size/" title="Doctors Use Big Data to Cut Sepsis Down to Size
+
+Source: Communications of the ACM - Artificial Intelligence By National Institute of General Medical Sciences February 19, 2020Comments Credit: Getty Images Sepsis is a serious medical condition caused by an overwhelming response to infection that damages tissues and organs. It&#39;s unpredictable, progresses quickly, can strike anyone, and is a leading…" data-origin="28092" data-position="2"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="https://mc.ai/doctors-use-big-data-to-cut-sepsis-down-to-size/" title="Doctors Use Big Data to Cut Sepsis Down to Size
+
+Source: Communications of the ACM - Artificial Intelligence By National Institute of General Medical Sciences February 19, 2020Comments Credit: Getty Images Sepsis is a serious medical condition caused by an overwhelming response to infection that damages tissues and organs. It&#39;s unpredictable, progresses quickly, can strike anyone, and is a leading…" data-origin="28092" data-position="2">Doctors Use Big Data to Cut Sepsis Down to Size</a></h4><p class="jp-relatedposts-post-excerpt" style="max-height: 7.14286em;">Source: Communications of the ACM - Artificial Intelligence By National Institute of General Medical Sciences February 19, 2020Comments Credit: Getty Images Sepsis is a serious medical condition caused by an overwhelming response to infection that damages tissues and organs. It's unpredictable, progresses quickly, can strike anyone, and is a leading…</p><p class="jp-relatedposts-post-date" style="display: block;">19. February 2020</p><p class="jp-relatedposts-post-context">Similar post</p></div></div></div>
+		
+	</a></div><!-- .entry-content --><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+
+	</a><footer class="entry-footer"><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+
+						
+	</a><nav class="navigation post-navigation" role="navigation" aria-label="Posts"><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		</a><div class="nav-links"><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html"></a><div class="nav-previous"><a href="https://jakevdp.github.io/PythonDataScienceHandbook/05.12-gaussian-mixtures.html"></a><a href="https://mc.ai/i-am-very-much-excited-to-share-this-with-you-all-that-i-have-become-a-redhat-enterprises-linux-8/" rel="prev"><span class="screen-reader-text">Previous Post:</span>I am very much excited to share this with you all that i have become a Redhat Enterprises Linux 8…</a></div><div class="nav-next"><a href="https://mc.ai/technical-learning-outcome%e2%80%8a-%e2%80%8aday-8-to-day-22/" rel="next"><span class="screen-reader-text">Next Post:</span>Technical Learning Outcome — Day 8 to Day 22</a></div></div>
+	</nav>
+	</footer><!-- .entry-footer -->
+
+</article>
+
+<div id="comments" class="comments-area">
+
+	
+	
+	
+	
+</div><!-- #comments -->
+		
+		</main><!-- #main -->
+	</section><!-- #primary -->
+	
+	
+	<section id="secondary" class="sidebar widget-area clearfix" role="complementary">
+
+		<aside id="search-2" class="widget widget_search clearfix">
+<form role="search" method="get" class="search-form" action="https://mc.ai/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search …" value="" name="s" title="Search for:">
+	</label>
+	<button type="submit" class="search-submit">
+		<span class="genericon-search"></span>
+		<span class="screen-reader-text">Search</span>
+	</button>
+</form>
+</aside><aside id="google_translate_widget-2" class="widget widget_google_translate_widget clearfix"><div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage"><select class="goog-te-combo" aria-label="Widget &quot;Sprache übersetzen&quot;"><option value="">Sprache auswählen</option><option value="de">Deutsch</option><option value="af">Afrikaans</option><option value="sq">Albanisch</option><option value="am">Amharisch</option><option value="ar">Arabisch</option><option value="hy">Armenisch</option><option value="az">Aserbaidschanisch</option><option value="eu">Baskisch</option><option value="bn">Bengalisch</option><option value="my">Birmanisch</option><option value="bs">Bosnisch</option><option value="bg">Bulgarisch</option><option value="ceb">Cebuano</option><option value="ny">Chichewa</option><option value="zh-TW">Chinesisch (traditionell)</option><option value="zh-CN">Chinesisch (vereinfacht)</option><option value="da">Dänisch</option><option value="eo">Esperanto</option><option value="et">Estnisch</option><option value="tl">Filipino</option><option value="fi">Finnisch</option><option value="fr">Französisch</option><option value="fy">Friesisch</option><option value="gl">Galizisch</option><option value="ka">Georgisch</option><option value="el">Griechisch</option><option value="gu">Gujarati</option><option value="ht">Haitianisch</option><option value="ha">Hausa</option><option value="haw">Hawaiisch</option><option value="iw">Hebräisch</option><option value="hi">Hindi</option><option value="hmn">Hmong</option><option value="ig">Igbo</option><option value="id">Indonesisch</option><option value="ga">Irisch</option><option value="is">Isländisch</option><option value="it">Italienisch</option><option value="ja">Japanisch</option><option value="jw">Javanisch</option><option value="yi">Jiddisch</option><option value="kn">Kannada</option><option value="kk">Kasachisch</option><option value="ca">Katalanisch</option><option value="km">Khmer</option><option value="rw">Kinyarwanda</option><option value="ky">Kirgisisch</option><option value="ko">Koreanisch</option><option value="co">Korsisch</option><option value="hr">Kroatisch</option><option value="ku">Kurdisch (Kurmandschi)</option><option value="lo">Lao</option><option value="la">Lateinisch</option><option value="lv">Lettisch</option><option value="lt">Litauisch</option><option value="lb">Luxemburgisch</option><option value="mg">Malagasy</option><option value="ml">Malayalam</option><option value="ms">Malaysisch</option><option value="mt">Maltesisch</option><option value="mi">Maori</option><option value="mr">Marathi</option><option value="mk">Mazedonisch</option><option value="mn">Mongolisch</option><option value="ne">Nepalesisch</option><option value="nl">Niederländisch</option><option value="no">Norwegisch</option><option value="or">Odia (Oriya)</option><option value="ps">Paschtu</option><option value="fa">Persisch</option><option value="pl">Polnisch</option><option value="pt">Portugiesisch</option><option value="pa">Punjabi</option><option value="ro">Rumänisch</option><option value="ru">Russisch</option><option value="sm">Samoanisch</option><option value="gd">Schottisch-Gälisch</option><option value="sv">Schwedisch</option><option value="sr">Serbisch</option><option value="st">Sesotho</option><option value="sn">Shona</option><option value="sd">Sindhi</option><option value="si">Singhalesisch</option><option value="sk">Slowakisch</option><option value="sl">Slowenisch</option><option value="so">Somali</option><option value="es">Spanisch</option><option value="sw">Suaheli</option><option value="su">Sundanesisch</option><option value="tg">Tadschikisch</option><option value="ta">Tamil</option><option value="tt">Tatarisch</option><option value="te">Telugu</option><option value="th">Thailändisch</option><option value="cs">Tschechisch</option><option value="tr">Türkisch</option><option value="tk">Turkmenisch</option><option value="ug">Uigurisch</option><option value="uk">Ukrainisch</option><option value="hu">Ungarisch</option><option value="ur">Urdu</option><option value="uz">Usbekisch</option><option value="vi">Vietnamesisch</option><option value="cy">Walisisch</option><option value="be">Weißrussisch</option><option value="xh">Xhosa</option><option value="yo">Yoruba</option><option value="zu">Zulu</option></select></div>Powered by <span style="white-space:nowrap"><a class="goog-logo-link" href="https://translate.google.com/" target="_blank"><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/googlelogo_color_42x16dp.png" width="37px" height="14px" style="padding-right: 3px" alt="Google Google Übersetzer">Google Übersetzer</a></span></div></div></aside><aside id="ninja_forms_widget-2" class="widget widget_ninja_forms_widget clearfix"><div class="widget-header"><h3 class="widget-title">Request for deletion</h3></div><noscript class="ninja-forms-noscript-message">
+    Notice: JavaScript is required for this content.</noscript><div id="nf-form-3-cont" class="nf-form-cont" aria-live="polite" aria-labelledby="nf-form-title-3" aria-describedby="nf-form-errors-3" role="form">
+	<span id="nf-form-title-3" class="nf-form-title">
+		
+	</span>
+	<div class="nf-form-wrap ninja-forms-form-wrap">
+		<div class="nf-response-msg"></div>
+		<div class="nf-debug-msg"></div>
+		<div class="nf-before-form"><nf-section>
+	
+</nf-section></div>
+		<div class="nf-form-layout"><form>
+		<div>
+			<div class="nf-before-form-content"><nf-section>
+    <div class="nf-form-fields-required">Fields marked with an <span class="ninja-forms-req-symbol">*</span> are required</div>
+    
+</nf-section></div>
+			<div class="nf-form-content "><nf-fields-wrap><nf-field>
+    <div id="nf-field-8-container" class="nf-field-container html-container  label-above ">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-8-wrap" class="field-wrap html-wrap" data-field-id="8">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-8" id="nf-label-field-8" class="">HTML  </label></div>
+
+		
+		<div class="nf-field-element">
+    <p>The blog posts on this website are all collected from different sources (via feeds).</p><p>If you are an author of a post and would like to have it deleted from this page, you can request it using this form.</p><p>Requests will be processed as soon as possible.</p>
+</div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-8" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-9-container" class="nf-field-container firstname-container  label-above ">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-9-wrap" class="field-wrap firstname-wrap" data-field-id="9">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-9" id="nf-label-field-9" class="">Name <span class="ninja-forms-req-symbol">*</span> </label></div>
+
+		
+		<div class="nf-field-element" data-children-count="1">
+    <input type="text" value="" class="ninja-forms-field nf-element" id="nf-field-9" name="fname" autocomplete="given-name" aria-invalid="false" aria-describedby="nf-error-9" aria-labelledby="nf-label-field-9" required="" data-kwimpalastatus="alive" data-kwimpalaid="1586934916500-0">
+<span style="animation: initial; transition: initial; color: initial; font: initial; font-feature-settings: initial; font-kerning: initial; font-optical-sizing: initial; font-variation-settings: initial; text-orientation: initial; text-rendering: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; backdrop-filter: initial; backface-visibility: initial; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjUgNS4yODgxMUMxMy41IDUuMTkzNzYgMTMuNDA1NyA1LjA5OTQxIDEzLjI3MzYgNS4wNjE2NkwxMS42ODg2IDQuNDc2NjZDMTEuNDI0NCA0LjM2MzQxIDExLjEyMjUgNC40OTU1MSAxMS4xMjI1IDQuNjg0MjZWMTEuNTgxN0MxMS4xMjk5IDExLjYzNTUgMTEuMTUxMiAxMS42ODY0IDExLjE4NDMgMTEuNzI5NEMxMS4yMTc0IDExLjc3MjQgMTEuMjYxMSAxMS44MDYxIDExLjMxMTIgMTEuODI3MUwxMi45MzQxIDEyLjQxMjFDMTMuMTc5NCAxMi41MDY0IDEzLjUwMDIgMTIuMzc0MyAxMy41MDAyIDEyLjE2NjdMMTMuNSA1LjI4ODExWk05LjQ3OTQyIDEwLjU0MzdDOS40Nzk0MiAxMC40NDk0IDkuMzg1MDcgMTAuMzU1IDkuMjUyOTcgMTAuMzE3M0w3LjY2Nzk3IDkuNzMyMjZDNy40MDM4MiA5LjYxOTAxIDcuMTAxODcgOS43NTExMSA3LjEwMTg3IDkuOTM5ODFWMTQuMjQyNEM3LjEwOTMxIDE0LjI5NjEgNy4xMzA2MiAxNC4zNDcgNy4xNjM3MSAxNC4zOUM3LjE5NjggMTQuNDMzMSA3LjI0MDUyIDE0LjQ2NjcgNy4yOTA1NyAxNC40ODc3TDguOTEzNDcgMTUuMDcyN0M5LjE1ODc3IDE1LjE2NzEgOS40Nzk1NyAxNS4wMzUgOS40Nzk1NyAxNC44Mjc0TDkuNDc5NDIgMTAuNTQzN1pNOS40Nzk0MiAxLjc0OTc2QzkuNDc5NDIgMS42NTU0MSA5LjM4NTA3IDEuNTYxMDYgOS4yNTI5NyAxLjUyMzMxTDcuNjY3OTcgMC45MzgzMTFDNy40MDM4MiAwLjgyNTA2MSA3LjEwMTg3IDAuOTU3MTYxIDcuMTAxODcgMS4xNDU4NlY1LjQ0ODQxQzcuMTA5MzEgNS41MDIxNyA3LjEzMDYyIDUuNTUzMDcgNy4xNjM3MSA1LjU5NjA5QzcuMTk2OCA1LjYzOTEyIDcuMjQwNTIgNS42NzI3OCA3LjI5MDU3IDUuNjkzNzZMOC45MTM0NyA2LjI3ODc2QzkuMTU4NzcgNi4zNzMxMSA5LjQ3OTU3IDYuMjQxMDEgOS40Nzk1NyA2LjAzMzQxTDkuNDc5NDIgMS43NDk3NlpNNS40NzkxNyAxLjQxOTc2QzUuNDc5MTcgMS4zMjUzNiA1LjM4NDgyIDEuMjMxMDEgNS4yNTI3MiAxLjE5MzMxTDMuNjY3NzIgMC42MDgzMTFDMy40MDM1NyAwLjQ5NTA2MSAzLjEwMTYyIDAuNjI3MTYxIDMuMTAxNjIgMC44MTU4NjFWMTQuNTkxNEMzLjEwOTA1IDE0LjY0NTIgMy4xMzAzNiAxNC42OTYxIDMuMTYzNDUgMTQuNzM5MUMzLjE5NjU0IDE0Ljc4MjEgMy4yNDAyNyAxNC44MTU3IDMuMjkwMzIgMTQuODM2N0w0LjkxMzIyIDE1LjQyMTdDNS4xNTg1MiAxNS41MTYxIDUuNDc5MzIgMTUuMzg0IDUuNDc5MzIgMTUuMTc2NEw1LjQ3OTE3IDEuNDE5NzZaIiBmaWxsPSIjMEU2NDc2Ii8+Cjwvc3ZnPgo=&quot;) center center / contain no-repeat; background-blend-mode: initial; baseline-shift: initial; block-size: initial; border-block-end: initial; border-block-start: initial; border: none; border-radius: initial; border-collapse: initial; border-inline-end: initial; border-inline-start: initial; bottom: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-color: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; columns: initial; column-fill: initial; gap: initial; column-rule: initial; column-span: initial; contain: initial; content: initial; counter-increment: initial; counter-reset: initial; cursor: initial; cx: initial; cy: initial; d: initial; display: inline; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; float: initial; flood-color: initial; flood-opacity: initial; grid: initial; grid-area: initial; height: 16px; hyphens: initial; image-rendering: initial; inline-size: initial; isolation: initial; left: 331px; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block-end: initial; margin-block-start: initial; margin: initial; margin-inline-end: initial; margin-inline-start: initial; marker: initial; mask: initial; mask-type: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: 16px; mix-blend-mode: initial; object-fit: initial; object-position: initial; offset: initial; opacity: 1; order: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-wrap: initial; overflow: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block-end: initial; padding-block-start: initial; padding: initial; padding-inline-end: initial; padding-inline-start: initial; page: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: initial; position: absolute; quotes: initial; r: initial; resize: initial; right: initial; rx: initial; ry: initial; scroll-behavior: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-indent: initial; text-overflow: initial; text-shadow: initial; text-size-adjust: initial; text-transform: initial; text-underline-position: initial; top: 17px; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; user-select: initial; vector-effect: initial; vertical-align: initial; visibility: visible; -webkit-app-region: initial; -webkit-appearance: initial; border-spacing: initial; -webkit-border-image: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-font-size-delta: initial; -webkit-highlight: initial; -webkit-hyphenate-character: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-margin-collapse: initial; -webkit-margin-bottom-collapse: initial; -webkit-margin-top-collapse: initial; -webkit-mask-box-image: initial; -webkit-mask: initial; -webkit-mask-composite: initial; -webkit-perspective-origin-x: initial; -webkit-perspective-origin-y: initial; -webkit-print-color-adjust: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-emphasis: initial; -webkit-text-emphasis-position: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-transform-origin-x: initial; -webkit-transform-origin-y: initial; -webkit-transform-origin-z: initial; -webkit-user-drag: initial; -webkit-user-modify: initial; white-space: initial; widows: initial; width: 16px; will-change: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; z-index: auto;"></span></div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-9" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-10-container" class="nf-field-container email-container  label-above ">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-10-wrap" class="field-wrap email-wrap" data-field-id="10">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-10" id="nf-label-field-10" class="">Email <span class="ninja-forms-req-symbol">*</span> </label></div>
+
+		
+		<div class="nf-field-element" data-children-count="1">
+	<input type="email" value="" class="ninja-forms-field nf-element" id="nf-field-10" name="email" autocomplete="email" aria-invalid="false" aria-describedby="nf-error-10" aria-labelledby="nf-label-field-10" required="" data-kwimpalastatus="alive" data-kwimpalaid="1586934916500-1">
+<span style="animation: initial; transition: initial; color: initial; font: initial; font-feature-settings: initial; font-kerning: initial; font-optical-sizing: initial; font-variation-settings: initial; text-orientation: initial; text-rendering: initial; -webkit-font-smoothing: initial; -webkit-locale: initial; -webkit-text-orientation: initial; -webkit-writing-mode: initial; writing-mode: initial; zoom: initial; place-content: initial; place-items: initial; place-self: initial; alignment-baseline: initial; backdrop-filter: initial; backface-visibility: initial; background: url(&quot;data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjUgNS4yODgxMUMxMy41IDUuMTkzNzYgMTMuNDA1NyA1LjA5OTQxIDEzLjI3MzYgNS4wNjE2NkwxMS42ODg2IDQuNDc2NjZDMTEuNDI0NCA0LjM2MzQxIDExLjEyMjUgNC40OTU1MSAxMS4xMjI1IDQuNjg0MjZWMTEuNTgxN0MxMS4xMjk5IDExLjYzNTUgMTEuMTUxMiAxMS42ODY0IDExLjE4NDMgMTEuNzI5NEMxMS4yMTc0IDExLjc3MjQgMTEuMjYxMSAxMS44MDYxIDExLjMxMTIgMTEuODI3MUwxMi45MzQxIDEyLjQxMjFDMTMuMTc5NCAxMi41MDY0IDEzLjUwMDIgMTIuMzc0MyAxMy41MDAyIDEyLjE2NjdMMTMuNSA1LjI4ODExWk05LjQ3OTQyIDEwLjU0MzdDOS40Nzk0MiAxMC40NDk0IDkuMzg1MDcgMTAuMzU1IDkuMjUyOTcgMTAuMzE3M0w3LjY2Nzk3IDkuNzMyMjZDNy40MDM4MiA5LjYxOTAxIDcuMTAxODcgOS43NTExMSA3LjEwMTg3IDkuOTM5ODFWMTQuMjQyNEM3LjEwOTMxIDE0LjI5NjEgNy4xMzA2MiAxNC4zNDcgNy4xNjM3MSAxNC4zOUM3LjE5NjggMTQuNDMzMSA3LjI0MDUyIDE0LjQ2NjcgNy4yOTA1NyAxNC40ODc3TDguOTEzNDcgMTUuMDcyN0M5LjE1ODc3IDE1LjE2NzEgOS40Nzk1NyAxNS4wMzUgOS40Nzk1NyAxNC44Mjc0TDkuNDc5NDIgMTAuNTQzN1pNOS40Nzk0MiAxLjc0OTc2QzkuNDc5NDIgMS42NTU0MSA5LjM4NTA3IDEuNTYxMDYgOS4yNTI5NyAxLjUyMzMxTDcuNjY3OTcgMC45MzgzMTFDNy40MDM4MiAwLjgyNTA2MSA3LjEwMTg3IDAuOTU3MTYxIDcuMTAxODcgMS4xNDU4NlY1LjQ0ODQxQzcuMTA5MzEgNS41MDIxNyA3LjEzMDYyIDUuNTUzMDcgNy4xNjM3MSA1LjU5NjA5QzcuMTk2OCA1LjYzOTEyIDcuMjQwNTIgNS42NzI3OCA3LjI5MDU3IDUuNjkzNzZMOC45MTM0NyA2LjI3ODc2QzkuMTU4NzcgNi4zNzMxMSA5LjQ3OTU3IDYuMjQxMDEgOS40Nzk1NyA2LjAzMzQxTDkuNDc5NDIgMS43NDk3NlpNNS40NzkxNyAxLjQxOTc2QzUuNDc5MTcgMS4zMjUzNiA1LjM4NDgyIDEuMjMxMDEgNS4yNTI3MiAxLjE5MzMxTDMuNjY3NzIgMC42MDgzMTFDMy40MDM1NyAwLjQ5NTA2MSAzLjEwMTYyIDAuNjI3MTYxIDMuMTAxNjIgMC44MTU4NjFWMTQuNTkxNEMzLjEwOTA1IDE0LjY0NTIgMy4xMzAzNiAxNC42OTYxIDMuMTYzNDUgMTQuNzM5MUMzLjE5NjU0IDE0Ljc4MjEgMy4yNDAyNyAxNC44MTU3IDMuMjkwMzIgMTQuODM2N0w0LjkxMzIyIDE1LjQyMTdDNS4xNTg1MiAxNS41MTYxIDUuNDc5MzIgMTUuMzg0IDUuNDc5MzIgMTUuMTc2NEw1LjQ3OTE3IDEuNDE5NzZaIiBmaWxsPSIjMEU2NDc2Ii8+Cjwvc3ZnPgo=&quot;) center center / contain no-repeat; background-blend-mode: initial; baseline-shift: initial; block-size: initial; border-block-end: initial; border-block-start: initial; border: none; border-radius: initial; border-collapse: initial; border-inline-end: initial; border-inline-start: initial; bottom: initial; box-shadow: initial; box-sizing: initial; break-after: initial; break-before: initial; break-inside: initial; buffered-rendering: initial; caption-side: initial; caret-color: initial; clear: initial; clip: initial; clip-path: initial; clip-rule: initial; color-interpolation: initial; color-interpolation-filters: initial; color-rendering: initial; columns: initial; column-fill: initial; gap: initial; column-rule: initial; column-span: initial; contain: initial; content: initial; counter-increment: initial; counter-reset: initial; cursor: initial; cx: initial; cy: initial; d: initial; display: inline; dominant-baseline: initial; empty-cells: initial; fill: initial; fill-opacity: initial; fill-rule: initial; filter: initial; flex: initial; flex-flow: initial; float: initial; flood-color: initial; flood-opacity: initial; grid: initial; grid-area: initial; height: 16px; hyphens: initial; image-rendering: initial; inline-size: initial; isolation: initial; left: 331px; letter-spacing: initial; lighting-color: initial; line-break: initial; list-style: initial; margin-block-end: initial; margin-block-start: initial; margin: initial; margin-inline-end: initial; margin-inline-start: initial; marker: initial; mask: initial; mask-type: initial; max-block-size: initial; max-height: initial; max-inline-size: initial; max-width: initial; min-block-size: initial; min-height: initial; min-inline-size: initial; min-width: 16px; mix-blend-mode: initial; object-fit: initial; object-position: initial; offset: initial; opacity: 1; order: initial; orphans: initial; outline: initial; outline-offset: initial; overflow-anchor: initial; overflow-wrap: initial; overflow: initial; overscroll-behavior-block: initial; overscroll-behavior-inline: initial; overscroll-behavior: initial; padding-block-end: initial; padding-block-start: initial; padding: initial; padding-inline-end: initial; padding-inline-start: initial; page: initial; paint-order: initial; perspective: initial; perspective-origin: initial; pointer-events: initial; position: absolute; quotes: initial; r: initial; resize: initial; right: initial; rx: initial; ry: initial; scroll-behavior: initial; scroll-margin-block: initial; scroll-margin: initial; scroll-margin-inline: initial; scroll-padding-block: initial; scroll-padding: initial; scroll-padding-inline: initial; scroll-snap-align: initial; scroll-snap-stop: initial; scroll-snap-type: initial; shape-image-threshold: initial; shape-margin: initial; shape-outside: initial; shape-rendering: initial; size: initial; speak: initial; stop-color: initial; stop-opacity: initial; stroke: initial; stroke-dasharray: initial; stroke-dashoffset: initial; stroke-linecap: initial; stroke-linejoin: initial; stroke-miterlimit: initial; stroke-opacity: initial; stroke-width: initial; tab-size: initial; table-layout: initial; text-align: initial; text-align-last: initial; text-anchor: initial; text-combine-upright: initial; text-decoration: initial; text-decoration-skip-ink: initial; text-indent: initial; text-overflow: initial; text-shadow: initial; text-size-adjust: initial; text-transform: initial; text-underline-position: initial; top: 17px; touch-action: initial; transform: initial; transform-box: initial; transform-origin: initial; transform-style: initial; user-select: initial; vector-effect: initial; vertical-align: initial; visibility: visible; -webkit-app-region: initial; -webkit-appearance: initial; border-spacing: initial; -webkit-border-image: initial; -webkit-box-align: initial; -webkit-box-decoration-break: initial; -webkit-box-direction: initial; -webkit-box-flex: initial; -webkit-box-ordinal-group: initial; -webkit-box-orient: initial; -webkit-box-pack: initial; -webkit-box-reflect: initial; -webkit-font-size-delta: initial; -webkit-highlight: initial; -webkit-hyphenate-character: initial; -webkit-line-break: initial; -webkit-line-clamp: initial; -webkit-margin-collapse: initial; -webkit-margin-bottom-collapse: initial; -webkit-margin-top-collapse: initial; -webkit-mask-box-image: initial; -webkit-mask: initial; -webkit-mask-composite: initial; -webkit-perspective-origin-x: initial; -webkit-perspective-origin-y: initial; -webkit-print-color-adjust: initial; -webkit-rtl-ordering: initial; -webkit-ruby-position: initial; -webkit-tap-highlight-color: initial; -webkit-text-combine: initial; -webkit-text-decorations-in-effect: initial; -webkit-text-emphasis: initial; -webkit-text-emphasis-position: initial; -webkit-text-fill-color: initial; -webkit-text-security: initial; -webkit-text-stroke: initial; -webkit-transform-origin-x: initial; -webkit-transform-origin-y: initial; -webkit-transform-origin-z: initial; -webkit-user-drag: initial; -webkit-user-modify: initial; white-space: initial; widows: initial; width: 16px; will-change: initial; word-break: initial; word-spacing: initial; x: initial; y: initial; z-index: auto;"></span></div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-10" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-11-container" class="nf-field-container textarea-container  label-above ">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-11-wrap" class="field-wrap textarea-wrap" data-field-id="11">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-11" id="nf-label-field-11" class="">URL of post to be deleted (one per line) <span class="ninja-forms-req-symbol">*</span> </label></div>
+
+		
+		<div class="nf-field-element" data-children-count="1">
+    <textarea id="nf-field-11" name="nf-field-11" aria-invalid="false" aria-describedby="nf-error-11" class="ninja-forms-field nf-element" aria-labelledby="nf-label-field-11" required="">https://mc.ai/time-series-analysis-physionet-2019-early-prediction-of-sepsis/</textarea>
+</div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-11" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-14-container" class="nf-field-container textarea-container  label-above ">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-14-wrap" class="field-wrap textarea-wrap" data-field-id="14">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-14" id="nf-label-field-14" class="">Comment <span class="ninja-forms-req-symbol">*</span> </label></div>
+
+		
+		<div class="nf-field-element" data-children-count="1">
+    <textarea id="nf-field-14" name="nf-field-14" aria-invalid="false" aria-describedby="nf-error-14" class="ninja-forms-field nf-element" placeholder="please state the reason for your request" aria-labelledby="nf-label-field-14" required=""></textarea>
+</div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-14" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-15-container" class="nf-field-container checkbox-container  label-right ">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-15-wrap" class="field-wrap checkbox-wrap" data-field-id="15">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-15" id="nf-label-field-15" class="">I understand, that this form is for "requests for deletion" only. <span class="ninja-forms-req-symbol">*</span> </label></div>
+
+		
+		<div class="nf-field-element" data-children-count="1">
+	<input id="nf-field-15" name="nf-field-15" aria-describedby="nf-error-15" class="ninja-forms-field nf-element" type="checkbox" value="1" aria-labelledby="nf-label-field-15" required="">
+</div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-15" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-12-container" class="nf-field-container recaptcha-container  label-above  textbox-container">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-12-wrap" class="field-wrap recaptcha-wrap textbox-wrap" data-field-id="12">
+		
+		
+		
+	<div class="nf-field-label"><label for="nf-field-12" id="nf-label-field-12" class="">Recaptcha  </label></div>
+
+		
+		<div class="nf-field-element">
+	<input id="nf-field-12" name="nf-field-12" class="ninja-forms-field nf-element" type="hidden" value="">
+
+	<div class="g-recaptcha" data-callback="nf_recaptcha_response_12" data-theme="light" data-sitekey="6LdKtOAUAAAAABni5ZxgxfkyhZYFlsA-HFlxzjHb" data-fieldid="12"><div style="width: 304px; height: 78px;" data-children-count="1"><div><iframe src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/anchor.html" width="304" height="78" role="presentation" name="a-idxw6nktkwhe" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" data-children-count="0"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/saved_resource(1).html"></iframe></div>
+</div>
+		
+		
+	</div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-12" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field><nf-field>
+    <div id="nf-field-13-container" class="nf-field-container submit-container  label-above  textbox-container">
+        <div class="nf-before-field"><nf-section>
+    
+</nf-section></div>
+        <div class="nf-field"><div id="nf-field-13-wrap" class="field-wrap submit-wrap textbox-wrap" data-field-id="13">
+        <div class="nf-field-label"></div>
+        <div class="nf-field-element">
+	<input id="nf-field-13" class="ninja-forms-field nf-element " type="button" value="Submit">
+</div>
+        <div class="nf-error-wrap"></div>
+    </div></div>
+        <div class="nf-after-field"><nf-section>
+    
+    <div class="nf-input-limit"></div>
+    
+    <div id="nf-error-13" class="nf-error-wrap nf-error" role="alert"></div>
+    
+    
+</nf-section></div>
+    </div>
+</nf-field></nf-fields-wrap></div>
+			<div class="nf-after-form-content"><nf-section>
+    
+    <div id="nf-form-errors-3" class="nf-form-errors" role="alert"><nf-errors></nf-errors></div>
+    <div class="nf-form-hp"><nf-section>
+	<label for="nf-field-hp-3" aria-hidden="true" data-children-count="1">
+		If you are a human seeing this field, please leave it empty.
+		<input id="nf-field-hp-3" name="nf-field-hp" class="nf-element nf-field-hp" type="text" value="">
+	</label>
+</nf-section></div>
+</nf-section></div>
+		</div>
+	</form></div>
+		<div class="nf-after-form"><nf-section>
+	
+</nf-section></div>
+	</div>
+</div>
+        <!-- TODO: Move to Template File. -->
+        <script>var formDisplay=1;var nfForms=nfForms||[];var form=[];form.id='3';form.settings={"objectType":"Form Setting","editActive":true,"title":"Request for deletion","show_title":0,"allow_public_link":0,"embed_form":"","clear_complete":1,"hide_complete":1,"default_label_pos":"above","wrapper_class":"","element_class":"","key":"","add_submit":0,"changeEmailErrorMsg":"Please enter a valid email address!","changeDateErrorMsg":"Please enter a valid date!","confirmFieldErrorMsg":"These fields must match!","fieldNumberNumMinError":"Number Min Error","fieldNumberNumMaxError":"Number Max Error","fieldNumberIncrementBy":"Please increment by ","formErrorsCorrectErrors":"Please correct errors before submitting this form.","validateRequiredField":"This is a required field.","honeypotHoneypotError":"Honeypot Error","fieldsMarkedRequired":"Fields marked with an <span class=\"ninja-forms-req-symbol\">*<\/span> are required","currency":"","unique_field_error":"A form with this value has already been submitted.","logged_in":false,"not_logged_in_msg":"","sub_limit_msg":"The form has reached its submission limit.","calculations":[],"formContentData":["html_1584002622414","name_1584003151048","email_1584002452657","url_of_post_to_be_deleted_one_per_line_1584005778870","comment_1584005619009","i_understand_that_this_form_is_for_requests_for_deletion_only_1585063815767","recaptcha_1584002551084","submit_1584002563309"],"drawerDisabled":false,"ninjaForms":"Ninja Forms","fieldTextareaRTEInsertLink":"Insert Link","fieldTextareaRTEInsertMedia":"Insert Media","fieldTextareaRTESelectAFile":"Select a file","formHoneypot":"If you are a human seeing this field, please leave it empty.","fileUploadOldCodeFileUploadInProgress":"File Upload in Progress.","fileUploadOldCodeFileUpload":"FILE UPLOAD","currencySymbol":"&#36;","thousands_sep":",","decimal_point":".","siteLocale":"en_US","dateFormat":"m\/d\/Y","startOfWeek":"1","of":"of","previousMonth":"Previous Month","nextMonth":"Next Month","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"weekdaysMin":["Su","Mo","Tu","We","Th","Fr","Sa"],"currency_symbol":"","beforeForm":"","beforeFields":"","afterFields":"","afterForm":""};form.fields=[{"objectType":"Field","objectDomain":"fields","editActive":false,"order":1,"label":"HTML","type":"html","default":"<p>The blog posts on this website are all collected from different sources (via feeds).<\/p><p>If you are an author of a post and would like to have it deleted from this page, you can request it using this form.<\/p><p>Requests will be processed as soon as possible.<\/p>","container_class":"","element_class":"","key":"html_1584002622414","drawerDisabled":false,"id":8,"beforeField":"","afterField":"","value":"<p>The blog posts on this website are all collected from different sources (via feeds).<\/p><p>If you are an author of a post and would like to have it deleted from this page, you can request it using this form.<\/p><p>Requests will be processed as soon as possible.<\/p>","label_pos":"above","parentType":"html","element_templates":["html","input"],"old_classname":"","wrap_template":"wrap"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":2,"label":"Name","type":"firstname","key":"name_1584003151048","label_pos":"above","required":1,"default":"","placeholder":"","container_class":"","element_class":"","admin_label":"","help_text":"","custom_name_attribute":"fname","personally_identifiable":1,"value":"","id":9,"beforeField":"","afterField":"","parentType":"firstname","element_templates":["firstname","input"],"old_classname":"","wrap_template":"wrap"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":3,"label":"Email","type":"email","key":"email_1584002452657","label_pos":"above","required":1,"default":"","placeholder":"","container_class":"","element_class":"","admin_label":"","help_text":"","custom_name_attribute":"email","personally_identifiable":1,"value":"","id":10,"beforeField":"","afterField":"","parentType":"email","element_templates":["email","input"],"old_classname":"","wrap_template":"wrap"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":4,"label":"URL of post to be deleted (one per line)","type":"textarea","key":"url_of_post_to_be_deleted_one_per_line_1584005778870","label_pos":"above","required":1,"default":"{wp:post_url}","placeholder":"","container_class":"","element_class":"","input_limit":"","input_limit_type":"characters","input_limit_msg":"Character(s) left","manual_key":false,"admin_label":"","help_text":"","textarea_rte":"","disable_rte_mobile":"","textarea_media":"","value":"https:\/\/mc.ai\/time-series-analysis-physionet-2019-early-prediction-of-sepsis\/","drawerDisabled":false,"desc_text":"","id":11,"beforeField":"","afterField":"","parentType":"textarea","element_templates":["textarea","input"],"old_classname":"","wrap_template":"wrap"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":5,"label":"Comment","type":"textarea","key":"comment_1584005619009","label_pos":"above","required":1,"default":"","placeholder":"please state the reason for your request","container_class":"","element_class":"","input_limit":"","input_limit_type":"characters","input_limit_msg":"Character(s) left","manual_key":false,"admin_label":"","help_text":"","textarea_rte":"","disable_rte_mobile":"","textarea_media":"","value":"","drawerDisabled":false,"id":14,"beforeField":"","afterField":"","parentType":"textarea","element_templates":["textarea","input"],"old_classname":"","wrap_template":"wrap"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":6,"label":"I understand, that this form is for \"requests for deletion\" only.","type":"checkbox","key":"i_understand_that_this_form_is_for_requests_for_deletion_only_1585063815767","label_pos":"right","required":1,"container_class":"","element_class":"","manual_key":false,"admin_label":"","help_text":"","desc_text":"","default_value":"unchecked","checked_value":"Checked","unchecked_value":"Unchecked","checked_calc_value":"","unchecked_calc_value":"","drawerDisabled":false,"id":15,"beforeField":"","afterField":"","value":"","parentType":"checkbox","element_templates":["checkbox","input"],"old_classname":"","wrap_template":"wrap"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":7,"label":"Recaptcha","type":"recaptcha","container_class":"","element_class":"","size":"visible","key":"recaptcha_1584002551084","drawerDisabled":false,"id":12,"beforeField":"","afterField":"","value":"","label_pos":"above","parentType":"textbox","element_templates":["recaptcha","input"],"old_classname":"","wrap_template":"wrap","site_key":"6LdKtOAUAAAAABni5ZxgxfkyhZYFlsA-HFlxzjHb","theme":"light","lang":"en"},{"objectType":"Field","objectDomain":"fields","editActive":false,"order":9,"label":"Submit","type":"submit","processing_label":"Processing","container_class":"","element_class":"","key":"submit_1584002563309","drawerDisabled":false,"id":13,"beforeField":"","afterField":"","value":"","label_pos":"above","parentType":"textbox","element_templates":["submit","button","input"],"old_classname":"","wrap_template":"wrap-no-label"}];nfForms.push(form);</script>
+        </aside>
+	</section><!-- #secondary -->
+
+	
+	
+	</div><!-- #content -->
+	
+	
+	<div id="footer" class="footer-wrap">
+	
+		<footer id="colophon" class="site-footer container clearfix" role="contentinfo">
+
+			<div id="footer-text" class="site-info">
+				
+	<span class="credit-link">
+		WordPress Theme: Gridbox by <a href="https://themezee.com/" target="_blank" rel="nofollow">ThemeZee</a>.	</span>
+
+				</div><!-- .site-info -->
+			
+			
+		</footer><!-- #colophon -->
+		
+	</div>
+
+</div><!-- #page -->
+
+<link rel="stylesheet" id="lazyload-spinner-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/jquery.lazyloadxt.spinner.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="fifu-woo-css-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/woo.css" type="text/css" media="all">
+<style id="fifu-woo-css-inline-css" type="text/css">
+img.zoomImg {display:inline !important}
+</style>
+<link rel="stylesheet" id="dashicons-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="nf-display-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/display-opinions-light.css" type="text/css" media="all">
+<link rel="stylesheet" id="nf-font-awesome-css" href="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/font-awesome.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/wp-embed.min.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/jquery.lazyloadxt.min.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/jquery.lazyloadxt.srcset.min.js.Download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var fifuImageVars = {"fifu_lazy":"on","fifu_woo_lbox_enabled":"1","fifu_woo_zoom":"inline"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/image.js.Download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var _wp_google_translate_widget = {"lang":"en_US","layout":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/google-translate.min.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/f(1).txt"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/underscore.min.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/backbone.min.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/front-end-deps.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/api.js.Download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var nfi18n = {"ninjaForms":"Ninja Forms","changeEmailErrorMsg":"Please enter a valid email address!","changeDateErrorMsg":"Please enter a valid date!","confirmFieldErrorMsg":"These fields must match!","fieldNumberNumMinError":"Number Min Error","fieldNumberNumMaxError":"Number Max Error","fieldNumberIncrementBy":"Please increment by ","fieldTextareaRTEInsertLink":"Insert Link","fieldTextareaRTEInsertMedia":"Insert Media","fieldTextareaRTESelectAFile":"Select a file","formErrorsCorrectErrors":"Please correct errors before submitting this form.","formHoneypot":"If you are a human seeing this field, please leave it empty.","validateRequiredField":"This is a required field.","honeypotHoneypotError":"Honeypot Error","fileUploadOldCodeFileUploadInProgress":"File Upload in Progress.","fileUploadOldCodeFileUpload":"FILE UPLOAD","currencySymbol":"$","fieldsMarkedRequired":"Fields marked with an <span class=\"ninja-forms-req-symbol\">*<\/span> are required","thousands_sep":",","decimal_point":".","siteLocale":"en_US","dateFormat":"m\/d\/Y","startOfWeek":"1","of":"of","previousMonth":"Previous Month","nextMonth":"Next Month","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"monthsShort":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"weekdaysShort":["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],"weekdaysMin":["Su","Mo","Tu","We","Th","Fr","Sa"]};
+var nfFrontEnd = {"adminAjax":"https:\/\/mc.ai\/wp-admin\/admin-ajax.php","ajaxNonce":"9c31506a3f","requireBaseUrl":"https:\/\/mc.ai\/wp-content\/plugins\/ninja-forms\/assets\/js\/","use_merge_tags":{"user":{"address":"address","textbox":"textbox","button":"button","checkbox":"checkbox","city":"city","confirm":"confirm","date":"date","email":"email","firstname":"firstname","html":"html","hidden":"hidden","lastname":"lastname","listcheckbox":"listcheckbox","listcountry":"listcountry","listimage":"listimage","listmultiselect":"listmultiselect","listradio":"listradio","listselect":"listselect","liststate":"liststate","note":"note","number":"number","password":"password","passwordconfirm":"passwordconfirm","product":"product","quantity":"quantity","recaptcha":"recaptcha","shipping":"shipping","spam":"spam","starrating":"starrating","submit":"submit","terms":"terms","textarea":"textarea","total":"total","unknown":"unknown","zip":"zip","hr":"hr"},"post":{"address":"address","textbox":"textbox","button":"button","checkbox":"checkbox","city":"city","confirm":"confirm","date":"date","email":"email","firstname":"firstname","html":"html","hidden":"hidden","lastname":"lastname","listcheckbox":"listcheckbox","listcountry":"listcountry","listimage":"listimage","listmultiselect":"listmultiselect","listradio":"listradio","listselect":"listselect","liststate":"liststate","note":"note","number":"number","password":"password","passwordconfirm":"passwordconfirm","product":"product","quantity":"quantity","recaptcha":"recaptcha","shipping":"shipping","spam":"spam","starrating":"starrating","submit":"submit","terms":"terms","textarea":"textarea","total":"total","unknown":"unknown","zip":"zip","hr":"hr"},"system":{"address":"address","textbox":"textbox","button":"button","checkbox":"checkbox","city":"city","confirm":"confirm","date":"date","email":"email","firstname":"firstname","html":"html","hidden":"hidden","lastname":"lastname","listcheckbox":"listcheckbox","listcountry":"listcountry","listimage":"listimage","listmultiselect":"listmultiselect","listradio":"listradio","listselect":"listselect","liststate":"liststate","note":"note","number":"number","password":"password","passwordconfirm":"passwordconfirm","product":"product","quantity":"quantity","recaptcha":"recaptcha","shipping":"shipping","spam":"spam","starrating":"starrating","submit":"submit","terms":"terms","textarea":"textarea","total":"total","unknown":"unknown","zip":"zip","hr":"hr"},"fields":{"address":"address","textbox":"textbox","button":"button","checkbox":"checkbox","city":"city","confirm":"confirm","date":"date","email":"email","firstname":"firstname","html":"html","hidden":"hidden","lastname":"lastname","listcheckbox":"listcheckbox","listcountry":"listcountry","listimage":"listimage","listmultiselect":"listmultiselect","listradio":"listradio","listselect":"listselect","liststate":"liststate","note":"note","number":"number","password":"password","passwordconfirm":"passwordconfirm","product":"product","quantity":"quantity","recaptcha":"recaptcha","shipping":"shipping","spam":"spam","starrating":"starrating","submit":"submit","terms":"terms","textarea":"textarea","total":"total","unknown":"unknown","zip":"zip","hr":"hr"},"calculations":{"html":"html","hidden":"hidden","note":"note","unknown":"unknown"}},"opinionated_styles":"light"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/front-end.js.Download"></script>
+<script type="text/javascript" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/e-202016.js.Download" async="async" defer="defer"></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:8.4.1',blog:'142080515',post:'28092',tz:'1',srv:'mc.ai'} ]);
+	_stq.push([ 'clickTrackerInit', '142080515', '28092' ]);
+</script>
+<script id="tmpl-nf-layout" type="text/template">
+	<span id="nf-form-title-{{{ data.id }}}" class="nf-form-title">
+		{{{ ( 1 == data.settings.show_title ) ? '<h3>' + data.settings.title + '</h3>' : '' }}}
+	</span>
+	<div class="nf-form-wrap ninja-forms-form-wrap">
+		<div class="nf-response-msg"></div>
+		<div class="nf-debug-msg"></div>
+		<div class="nf-before-form"></div>
+		<div class="nf-form-layout"></div>
+		<div class="nf-after-form"></div>
+	</div>
+</script>
+
+<script id="tmpl-nf-empty" type="text/template">
+
+</script>
+<script id="tmpl-nf-before-form" type="text/template">
+	{{{ data.beforeForm }}}
+</script><script id="tmpl-nf-after-form" type="text/template">
+	{{{ data.afterForm }}}
+</script><script id="tmpl-nf-before-fields" type="text/template">
+    <div class="nf-form-fields-required">{{{ data.renderFieldsMarkedRequired() }}}</div>
+    {{{ data.beforeFields }}}
+</script><script id="tmpl-nf-after-fields" type="text/template">
+    {{{ data.afterFields }}}
+    <div id="nf-form-errors-{{{ data.id }}}" class="nf-form-errors" role="alert"></div>
+    <div class="nf-form-hp"></div>
+</script>
+<script id="tmpl-nf-before-field" type="text/template">
+    {{{ data.beforeField }}}
+</script><script id="tmpl-nf-after-field" type="text/template">
+    {{{ data.afterField }}}
+</script><script id="tmpl-nf-form-layout" type="text/template">
+	<form>
+		<div>
+			<div class="nf-before-form-content"></div>
+			<div class="nf-form-content {{{ data.element_class }}}"></div>
+			<div class="nf-after-form-content"></div>
+		</div>
+	</form>
+</script><script id="tmpl-nf-form-hp" type="text/template">
+	<label for="nf-field-hp-{{{ data.id }}}" aria-hidden="true">
+		{{{ nfi18n.formHoneypot }}}
+		<input id="nf-field-hp-{{{ data.id }}}" name="nf-field-hp" class="nf-element nf-field-hp" type="text" value=""/>
+	</label>
+</script>
+<script id="tmpl-nf-field-layout" type="text/template">
+    <div id="nf-field-{{{ data.id }}}-container" class="nf-field-container {{{ data.type }}}-container {{{ data.renderContainerClass() }}}">
+        <div class="nf-before-field"></div>
+        <div class="nf-field"></div>
+        <div class="nf-after-field"></div>
+    </div>
+</script>
+<script id="tmpl-nf-field-before" type="text/template">
+    {{{ data.beforeField }}}
+</script><script id="tmpl-nf-field-after" type="text/template">
+    <#
+    /*
+     * Render our input limit section if that setting exists.
+     */
+    #>
+    <div class="nf-input-limit"></div>
+    <#
+    /*
+     * Render our error section if we have an error.
+     */
+    #>
+    <div id="nf-error-{{{ data.id }}}" class="nf-error-wrap nf-error" role="alert"></div>
+    <#
+    /*
+     * Render any custom HTML after our field.
+     */
+    #>
+    {{{ data.afterField }}}
+</script>
+<script id="tmpl-nf-field-wrap" type="text/template">
+	<div id="nf-field-{{{ data.id }}}-wrap" class="{{{ data.renderWrapClass() }}}" data-field-id="{{{ data.id }}}">
+		<#
+		/*
+		 * This is our main field template. It's called for every field type.
+		 * Note that must have ONE top-level, wrapping element. i.e. a div/span/etc that wraps all of the template.
+		 */
+        #>
+		<#
+		/*
+		 * Render our label.
+		 */
+        #>
+		{{{ data.renderLabel() }}}
+		<#
+		/*
+		 * Render our field element. Uses the template for the field being rendered.
+		 */
+        #>
+		<div class="nf-field-element">{{{ data.renderElement() }}}</div>
+		<#
+		/*
+		 * Render our Description Text.
+		 */
+        #>
+		{{{ data.renderDescText() }}}
+	</div>
+</script>
+<script id="tmpl-nf-field-wrap-no-label" type="text/template">
+    <div id="nf-field-{{{ data.id }}}-wrap" class="{{{ data.renderWrapClass() }}}" data-field-id="{{{ data.id }}}">
+        <div class="nf-field-label"></div>
+        <div class="nf-field-element">{{{ data.renderElement() }}}</div>
+        <div class="nf-error-wrap"></div>
+    </div>
+</script>
+<script id="tmpl-nf-field-wrap-no-container" type="text/template">
+
+        {{{ data.renderElement() }}}
+
+        <div class="nf-error-wrap"></div>
+</script>
+<script id="tmpl-nf-field-label" type="text/template">
+	<div class="nf-field-label"><label for="nf-field-{{{ data.id }}}"
+	                                   id="nf-label-field-{{{ data.id }}}"
+	                                   class="{{{ data.renderLabelClasses() }}}">{{{ data.label }}} {{{ ( 'undefined' != typeof data.required && 1 == data.required ) ? '<span class="ninja-forms-req-symbol">*</span>' : '' }}} {{{ data.maybeRenderHelp() }}}</label></div>
+</script>
+<script id="tmpl-nf-field-error" type="text/template">
+	<div class="nf-error-msg nf-error-{{{ data.id }}}">{{{ data.msg }}}</div>
+</script><script id="tmpl-nf-form-error" type="text/template">
+	<div class="nf-error-msg nf-error-{{{ data.id }}}">{{{ data.msg }}}</div>
+</script><script id="tmpl-nf-field-input-limit" type="text/template">
+    {{{ data.currentCount() }}} {{{ nfi18n.of }}} {{{ data.input_limit }}} {{{ data.input_limit_msg }}}
+</script><script id="tmpl-nf-field-null" type="text/template">
+</script><script id="tmpl-nf-field-html" type="text/template">
+    {{{ data.value }}}
+</script>
+
+
+<script id="tmpl-nf-field-input" type="text/template">
+    <input id="nf-field-{{{ data.id }}}" name="nf-field-{{{ data.id }}}" aria-invalid="false" aria-describedby="nf-error-{{{ data.id }}}" class="{{{ data.renderClasses() }}} nf-element" type="text" value="{{{ data.value }}}" {{{ data.renderPlaceholder() }}} {{{ data.maybeDisabled() }}}
+           aria-labelledby="nf-label-field-{{{ data.id }}}"
+
+            {{{ data.maybeRequired() }}}
+    >
+</script>
+<script id="tmpl-nf-field-firstname" type="text/template">
+    <input
+            type="text"
+            value="{{{ data.value }}}"
+            class="{{{ data.renderClasses() }}} nf-element"
+
+            id="nf-field-{{{ data.id }}}"
+            <# if( ! data.disable_browser_autocompletes ){ #>
+            name="{{ data.custom_name_attribute || 'nf-field-' + data.id + '-' + data.type }}"
+            autocomplete="given-name"
+            <# } else { #>
+            name="{{ data.custom_name_attribute || 'nf-field-' + data.id }}"
+            {{{ data.maybeDisableAutocomplete() }}}
+            <# } #>
+            {{{ data.renderPlaceholder() }}}
+
+            aria-invalid="false"
+            aria-describedby="nf-error-{{{ data.id }}}"
+            aria-labelledby="nf-label-field-{{{ data.id }}}"
+
+            {{{ data.maybeRequired() }}}
+    >
+</script>
+<script id="tmpl-nf-field-email" type="text/template">
+	<input
+			type="email"
+			value="{{{ data.value }}}"
+			class="{{{ data.renderClasses() }}} nf-element"
+
+			id="nf-field-{{{ data.id }}}"
+			<# if( ! data.disable_browser_autocompletes ){ #>
+			name="{{ data.custom_name_attribute || 'nf-field-' + data.id + '-' + data.type }}"
+			autocomplete="email"
+			<# } else { #>
+			name="{{ data.custom_name_attribute || 'nf-field-' + data.id }}"
+			{{{ data.maybeDisableAutocomplete() }}}
+			<# } #>
+			{{{ data.renderPlaceholder() }}}
+			{{{ data.maybeDisabled() }}}
+
+			aria-invalid="false"
+			aria-describedby="nf-error-{{{ data.id }}}"
+			aria-labelledby="nf-label-field-{{{ data.id }}}"
+
+			{{{ data.maybeRequired() }}}
+	>
+</script>
+<script id="tmpl-nf-field-textarea" type="text/template">
+    <textarea id="nf-field-{{{ data.id }}}" name="nf-field-{{{ data.id }}}" aria-invalid="false" aria-describedby="nf-error-{{{ data.id }}}" class="{{{ data.renderClasses() }}} nf-element" {{{ data.renderPlaceholder() }}} {{{ data.maybeDisabled() }}} {{{ data.maybeDisableAutocomplete() }}} {{{ data.maybeInputLimit() }}}
+        aria-labelledby="nf-label-field-{{{ data.id }}}"
+
+        {{{ data.maybeRequired() }}}
+    >{{{ data.value }}}</textarea>
+</script>
+
+<!-- Rich Text Editor Templates -->
+
+<script id="tmpl-nf-rte-media-button" type="text/template">
+    <span class="dashicons dashicons-admin-media"></span>
+</script>
+
+<script id="tmpl-nf-rte-link-button" type="text/template">
+    <span class="dashicons dashicons-admin-links"></span>
+</script>
+
+<script id="tmpl-nf-rte-unlink-button" type="text/template">
+    <span class="dashicons dashicons-editor-unlink"></span>
+</script>
+
+<script id="tmpl-nf-rte-link-dropdown" type="text/template">
+    <div class="summernote-link">
+        URL
+        <input type="url" class="widefat code link-url"> <br />
+        Text
+        <input type="url" class="widefat code link-text"> <br />
+        <label>
+            <input type="checkbox" class="link-new-window"> {{{ nfi18n.fieldsTextareaOpenNewWindow }}}
+        </label>
+        <input type="button" class="cancel-link extra" value="Cancel">
+        <input type="button" class="insert-link extra" value="Insert">
+    </div>
+</script>
+<script id="tmpl-nf-field-checkbox" type="text/template">
+	<input id="nf-field-{{{ data.id }}}"
+	       name="nf-field-{{{ data.id }}}"
+	       aria-describedby="nf-error-{{{ data.id }}}"
+	       class="{{{ data.renderClasses() }}} nf-element"
+	       type="checkbox"
+	       value="1" {{{ data.maybeDisabled() }}}{{{ data.maybeChecked() }}}
+	       aria-labelledby="nf-label-field-{{{ data.id }}}"
+
+			{{{ data.maybeRequired() }}}
+	>
+</script>
+<script id="tmpl-nf-field-recaptcha" type="text/template">
+	<input id="nf-field-{{{ data.id }}}" name="nf-field-{{{ data.id }}}" class="{{{ data.renderClasses() }}} nf-element" type="hidden" value="{{{ data.value }}}" />
+
+	<div class="g-recaptcha" data-callback="nf_recaptcha_response_{{{ data.id }}}" data-theme="{{{ data.theme }}}" data-sitekey="{{{ data.site_key }}}" data-fieldid="{{{ data.id }}}" {{{ ( "invisible" == data.size ) ? 'data-size="invisible"' : '' }}}></div>
+</script><script id="tmpl-nf-field-submit" type="text/template">
+	<input id="nf-field-{{{ data.id }}}" class="{{{ data.renderClasses() }}} nf-element " type="button" value="{{{ data.label }}}" {{{ ( data.disabled ) ? 'disabled' : '' }}}>
+</script><script id="tmpl-nf-field-button" type="text/template">
+    <button id="nf-field-{{{ data.id }}}" name="nf-field-{{{ data.id }}}" class="{{{ data.classes }}} nf-element">
+        {{{ data.label }}}
+    </button>
+</script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/translate_24dp.png" width="20" height="20" alt="Google Google Übersetzer"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Originaltext</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Bessere Übersetzung vorschlagen</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./Time Series Analysis _ Physionet 2019 Early Prediction of Sepsis – mc.ai_files/bframe.html" name="c-idxw6nktkwhe" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body></html>
