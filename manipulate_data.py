@@ -5,7 +5,7 @@ from tqdm import tqdm
 
 
 # Path to dataset (wrong atm)
-path_train_B = "C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/B"
+path_train_B = "C:/Users/Vesa/Documents/Physio/training_setB/"
 
 train_B =0
 
