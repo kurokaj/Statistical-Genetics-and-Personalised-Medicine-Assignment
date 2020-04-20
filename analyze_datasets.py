@@ -181,11 +181,35 @@ for patient in tqdm(patients_with_sepsis):
 time.sleep(0.2)
 print("\nTime To Sepsis -column populated.\n")
 
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+# 4. Additional modifications to the dataframe
+
+# Replace SepsisLabel column with 1 for all sepsis patients
+
+print("\nStep 4: Converting SepsisLabel -column to 1 for all sepsis patients..\n")
+time.sleep(0.2)
+
+for patient in tqdm(patients_with_sepsis):
+    index = df_sepsishours.loc[df_sepsishours['ID'] == patient]['First Occurrence'].item()
+    totalHours = df_sepsishours.loc[df_sepsishours['ID'] == patient,'Total hours'].item()
+    sepsisHours = df_sepsishours.loc[df_sepsishours['ID'] == patient,'Hours with sepsis'].item()
+    for row in range(0,totalHours):
+        df.loc[index+row,'SepsisLabel'] = 1
+        
+time.sleep(0.2)
+print("\nConversion done.\n")
+
+
 # Convert to Excel & numpy array for saving etc.; uncomment if needed
 # Note: Make sure the output file has the correct filename!
 
 # df_np = np.asarray(df)
-# df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_A_modified.xlsx")
-# df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_B_modified.xlsx")
+# df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_A.xlsx")
+# df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_B.xlsx")
 
 print("Script ended. The dataset used was: " + dataset_selection + ".")
