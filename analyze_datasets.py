@@ -113,8 +113,13 @@ for i in tqdm(range(len(df_sepsishours)-1)): # Start from second row
 time.sleep(0.2)
 print("\nList populated.\n")
 
+# Convert to Excel & numpy array for saving etc.; uncomment if needed
+# Note: Make sure the output file has the correct filename!
+
 # df_sepsishours.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_sepsishours_A.xlsx")
 # df_sepsishours.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_sepsishours_B.xlsx")
+
+# df_sepsishours_np = np.asarray(df_sepsishours)
 
 #######################################################################
 #######################################################################
@@ -184,4 +189,3 @@ print("\nTime To Sepsis -column populated.\n")
 # df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_B_modified.xlsx")
 
 print("Script ended. The dataset used was: " + dataset_selection + ".")
-
