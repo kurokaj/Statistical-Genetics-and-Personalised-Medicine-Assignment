@@ -51,6 +51,15 @@ df.columns = ["HR","O2Sat","Temp","SBP","MAP","DBP","Resp","EtCO2","BaseExcess",
             "Gender","Unit1","Unit2","HospAdmTime","ICULOS","SepsisLabel",
             "HoursInICU","ID"]
 
+df_sepsishours['3'] = df_sepsishours[1] +df_sepsishours[2]
+df_sepsishours.columns = ["ID",
+                          "Hours with sepsis", 
+                          "Hours without sepsis",
+                          "Total hours"]
+
+
+ 
+
 # Create a mini version of the dataframe for visual inspection 
 # (the original dataframe is too big to open with 700k+ lines)
 
@@ -90,6 +99,23 @@ df_mini = pd.DataFrame(df.iloc[:10000])
 #         currentNoSepsisHours = df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithoutSepsis"]
 #         df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithoutSepsis"] = currentNoSepsisHours + 1
 
+
+# Calculate first occurrences of each patient based on number of hours(rows)
+
+df_sepsishours['First Occurrence'] = 0 # Initialize column as zero
+
+print("\nStep 1: Populating First Occurence -column..\n")
+time.sleep(0.2)
+
+for i in tqdm(range(len(df_sepsishours)-1)): # Start from second row
+    df_sepsishours.iloc[i+1,4] = df_sepsishours.iloc[(i),4] + df_sepsishours.iloc[i,3]
+ 
+time.sleep(0.2)
+print("\nList populated.\n")
+
+# df_sepsishours.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_sepsishours_A.xlsx")
+# df_sepsishours.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_sepsishours_B.xlsx")
+
 #######################################################################
 #######################################################################
 #######################################################################
@@ -104,7 +130,7 @@ patients_without_sepsis = []
         
 # Populate arrays
 
-print("\nPopulating lists patients_with_sepsis and patients_without_sepsis..\n")
+print("\nStep 2: Populating lists patients_with_sepsis and patients_without_sepsis..\n")
 time.sleep(0.1)
 for index, row in tqdm(df_sepsishours.iterrows()):
     if row[1] == 0:
@@ -113,7 +139,7 @@ for index, row in tqdm(df_sepsishours.iterrows()):
         patients_with_sepsis.append(row[0])
 time.sleep(0.1)
 del index,row
-print("\nLists populated.\n")
+print("\npatients_with_sepsis and patients_without_sepsis lists populated.\n")
         
         
 # Convert to numpy array for saving etc.; uncomment if needed
@@ -130,14 +156,32 @@ print("\nLists populated.\n")
 # The first sepsis hour label will have the value "0", ones before it
 # will have values -1, -2, -3.. depending on how many hours until sepsis,
 # ones after it will have values 1, 2, 3.. depending on how many hours after.
+# The "TimeToSepsis" value is 0 on the last row before SepsisLabel 1.
+# Patients who never experience sepsis will have TimeToSepsis 999.
 
-# Note: This is only applied to the main dataframe, which you can select
-# from the beginning. It's not applied to both A and B!
 
-df['TimeToSepsis'] = np.nan
+# df_mini_orig = pd.DataFrame(df.iloc[:10000])
 
-df_mini_orig = pd.DataFrame(df.iloc[:10000])
+print("\nStep 3: Populating Time To Sepsis -column..\n")
+time.sleep(0.2)
 
-for patient in patients_with_sepsis:
-    df_mini.loc[df_mini.ID == patient, "TimeToSepsis"] = 1
+df['TimeToSepsis'] = 999
+for patient in tqdm(patients_with_sepsis):
+    index = df_sepsishours.loc[df_sepsishours['ID'] == patient]['First Occurrence'].item()
+    totalHours = df_sepsishours.loc[df_sepsishours['ID'] == patient,'Total hours'].item()
+    sepsisHours = df_sepsishours.loc[df_sepsishours['ID'] == patient,'Hours with sepsis'].item()
+    for row in range(0,totalHours):
+        df.loc[index+row,'TimeToSepsis'] = sepsisHours - totalHours + row + 1
     
+time.sleep(0.2)
+print("\nTime To Sepsis -column populated.\n")
+
+# Convert to Excel & numpy array for saving etc.; uncomment if needed
+# Note: Make sure the output file has the correct filename!
+
+# df_np = np.asarray(df)
+# df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_A_modified.xlsx")
+# df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_B_modified.xlsx")
+
+print("Script ended. The dataset used was: " + dataset_selection + ".")
+
