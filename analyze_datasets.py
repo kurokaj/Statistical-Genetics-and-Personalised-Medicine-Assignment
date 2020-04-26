@@ -5,8 +5,9 @@ from tqdm import tqdm
 import time
 
 
+
 # Path to dataset (wrong atm)
-dataset_dir = "C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/"
+dataset_dir = "R:/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/"
 
 # Load dataset archives
 
@@ -31,6 +32,7 @@ elif dataset_selection == 'b':
     df_sepsishours = pd.DataFrame(df_sepsishours)
     print("Dataset B successfully loaded.\n")
 else:
+    dataset_selection = 'a'
     print("No valid dataset selected, defaulting to A...\n")
     df = np.load(dataset_dir + "train_A.npz", allow_pickle=1)
     df = df['arr_0']
@@ -49,13 +51,14 @@ df.columns = ["HR","O2Sat","Temp","SBP","MAP","DBP","Resp","EtCO2","BaseExcess",
             "Lactate","Magnesium","Phosphate","Potassium","Bilirubin_total",
             "TroponinI","Hct","Hgb","PTT","WBC","Fibrinogen","Platelets","Age",
             "Gender","Unit1","Unit2","HospAdmTime","ICULOS","SepsisLabel",
-            "HoursInICU","ID"]
+            "HoursInICU","ID"]#, "TimeToSepsis"]
 
-df_sepsishours['3'] = df_sepsishours[1] +df_sepsishours[2]
+#df_sepsishours['3'] = df_sepsishours[1] +df_sepsishours[2] #
 df_sepsishours.columns = ["ID",
                           "Hours with sepsis", 
                           "Hours without sepsis",
-                          "Total hours"]
+                          "Total hours",
+                          "First row in the sheet"]
 
 
  
@@ -72,32 +75,32 @@ df_mini = pd.DataFrame(df.iloc[:10000])
 #######################################################################
 #######################################################################
 
-# # 1. Count how many hours each patient has with, and without, sepsis
+# 1. Count how many hours each patient has with, and without, sepsis
 
-# # Get unique values in "ID" column to identify patients
-# unique_ids = df.ID.unique().tolist()
-# hours = [0] * len(unique_ids)
-# sepsishours_columns = [unique_ids, hours, hours]
+# Get unique values in "ID" column to identify patients
+unique_ids = df.ID.unique().tolist()
+hours = [0] * len(unique_ids)
+sepsishours_columns = [unique_ids, hours, hours]
 
-# df_sepsishours = pd.DataFrame(sepsishours_columns)
-# df_sepsishours = df_sepsishours.transpose()
-# df_sepsishours.columns = ["ID","HoursWithSepsis","HoursWithoutSepsis"]
+df_sepsishours = pd.DataFrame(sepsishours_columns)
+df_sepsishours = df_sepsishours.transpose()
+df_sepsishours.columns = ["ID","HoursWithSepsis","HoursWithoutSepsis"]
 
-# # Clear unneeded variables from variable explorer
+# Clear unneeded variables from variable explorer
 
-# del hours,sepsishours_columns
+del hours,sepsishours_columns
 
-# # Construct the dataset (Note: This for loop takes 1+ hour!) 
-# # Uncomment only if needed!
+# Construct the dataset (Note: This for loop takes 1+ hour!) 
+# Uncomment only if needed!
 
-# for index, row in tqdm(df.iterrows()):
-#     patientID = row['ID']
-#     if row['SepsisLabel'] == 1:
-#         currentSepsisHours = df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithSepsis"]
-#         df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithSepsis"] = currentSepsisHours + 1
-#     elif row['SepsisLabel'] == 0:
-#         currentNoSepsisHours = df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithoutSepsis"]
-#         df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithoutSepsis"] = currentNoSepsisHours + 1
+for index, row in tqdm(df.iterrows()):
+    patientID = row['ID']
+    if row['SepsisLabel'] == 1:
+        currentSepsisHours = df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithSepsis"]
+        df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithSepsis"] = currentSepsisHours + 1
+    elif row['SepsisLabel'] == 0:
+        currentNoSepsisHours = df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithoutSepsis"]
+        df_sepsishours.loc[df_sepsishours["ID"] == patientID, "HoursWithoutSepsis"] = currentNoSepsisHours + 1
 
 
 # Calculate first occurrences of each patient based on number of hours(rows)
@@ -108,7 +111,7 @@ print("\nStep 1: Populating First Occurence -column..\n")
 time.sleep(0.2)
 
 for i in tqdm(range(len(df_sepsishours)-1)): # Start from second row
-    df_sepsishours.iloc[i+1,4] = df_sepsishours.iloc[(i),4] + df_sepsishours.iloc[i,3]
+    df_sepsishours.iloc[i+1,3] = df_sepsishours.iloc[(i),3] + df_sepsishours.iloc[i,2]
  
 time.sleep(0.2)
 print("\nList populated.\n")
@@ -116,8 +119,13 @@ print("\nList populated.\n")
 # Convert to Excel & numpy array for saving etc.; uncomment if needed
 # Note: Make sure the output file has the correct filename!
 
-# df_sepsishours.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_sepsishours_A.xlsx")
-# df_sepsishours.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_sepsishours_B.xlsx")
+if dataset_selection == 'a':
+    df_sepsishours.to_excel(dataset_dir + "df_sepsishours_A.xlsx")
+elif dataset_selection == 'b':
+    df_sepsishours.to_excel(dataset_dir + "df_sepsishours_B.xlsx")
+else:
+    df_sepsishours.to_excel(dataset_dir + "df_sepsishours_A.xlsx")
+print('df_sepsishours saved to Excel file.')
 
 # df_sepsishours_np = np.asarray(df_sepsishours)
 
@@ -205,11 +213,83 @@ time.sleep(0.2)
 print("\nConversion done.\n")
 
 
-# Convert to Excel & numpy array for saving etc.; uncomment if needed
+# Optional: Convert to Excel & numpy array for saving etc.; uncomment if needed
 # Note: Make sure the output file has the correct filename!
 
 # df_np = np.asarray(df)
 # df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_A.xlsx")
 # df.to_excel("C:/Users/Vesa/Documents/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/df_B.xlsx")
 
+
+
+# Optional: Save dataframe to npz file, uncomment if needed
+
+from numpy import savez_compressed
+df_np = df.to_numpy()
+
+print('Saving dataset..')
+
+if dataset_selection == 'a':
+    savedir = dataset_dir + 'df_A_modified.npz'
+    savez_compressed(savedir, df_np)
+elif dataset_selection == 'b':
+    savedir = dataset_dir + 'df_B_modified.npz'
+    savez_compressed(savedir, df_np)
+else:
+    savedir = dataset_dir + 'df_A_modified.npz'
+    savez_compressed(savedir, df_np)
+print('Dataset saved to ' + savedir + '.')
+
+
+
+
+
+#######################################################################
+#######################################################################
+#######################################################################
+
+# 5. Draw graphs based on the dataset
+
+df_valueframe = pd.DataFrame()
+
+# Select column names from the dataname as index
+
+df_valueframe['Index'] = df.columns
+df_valueframe['Mean (all)'] = 0
+df_valueframe['Variance (all)'] = 0
+
+for i in range(-5,5):
+    df_valueframe['Mean ' + str(i)] = 0
+    df_valueframe['Var ' + str(i)] = 0
+
+print('\nPopulating df_valueframe dataframe..\n')
+
+for row in tqdm(range(len(df_valueframe))):
+    if df_valueframe['Index'][row] == 'ID':
+        df_valueframe.loc[row,'Mean (all)'] = 0
+        df_valueframe.loc[row,'Variance (all)'] = 0
+    else:
+        df_valueframe.loc[row,'Mean (all)'] = df[df_valueframe['Index'][row]].mean()
+        df_valueframe.loc[row,'Variance (all)'] = df[df_valueframe['Index'][row]].var()
+
+
+for row in tqdm(range(len(df_valueframe))):
+    for i in range(-5,5):
+        if df_valueframe['Index'][row] == 'ID':
+            df_valueframe.loc[row,'Mean ' + str(i)] = 0
+            df_valueframe.loc[row,'Var ' + str(i)] = 0
+        else:
+            df_valueframe.loc[row,'Mean ' + str(i)] = df[df.TimeToSepsis == i][df_valueframe['Index'][row]].mean()
+            df_valueframe.loc[row,'Var ' + str(i)] = df[df.TimeToSepsis == i][df_valueframe['Index'][row]].var()
+    
+
+print('\nDataframe populated.\n')
+
+
+
+
+
+#################
+
 print("Script ended. The dataset used was: " + dataset_selection + ".")
+
