@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 
 
 # Path to dataset (wrong atm)
-dataset_dir = "R:/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/"
-graph_dir = "R:/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Graphs/"
+dataset_dir = "R:/GitHub/Data_sets/"
+graph_dir = "R:/GitHub/Graphs/"
 
 # Load dataset archives
 

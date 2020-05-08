@@ -7,7 +7,7 @@ import time
 
 
 # Path to dataset (wrong atm)
-dataset_dir = "R:/GitHub/Statistical-Genetics-and-Personalised-Medicine-Assignment/Data_sets/"
+dataset_dir = "R:/GitHub/Data_sets/"
 
 # Load dataset archives
 
